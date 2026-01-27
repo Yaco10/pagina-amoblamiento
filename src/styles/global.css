@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-base: #F7F1E1;
+  --color-brand-surface: #E3D8C1;
+  --color-brand-accent: #B4833D;
+  --color-brand-wood: #66371B;
+  --color-brand-coyote: #81754B;
+  --color-brand-earth: #3F3F2C;
+}
+
+body {
+  font-family: "DM Sans", system-ui, sans-serif;
+}

@@ -1,0 +1,26 @@
+---
+const { class: className = "" } = Astro.props;
+---
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 256 256"
+  fill="none"
+  class={className}
+>
+  <circle cx="128" cy="128" r="112" stroke="currentColor" stroke-width="6" />
+
+  <rect x="74" y="72" width="108" height="96" rx="6"
+        stroke="currentColor" stroke-width="6" stroke-linejoin="round" />
+
+  <path d="M74 120 H182" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
+
+  <path d="M104 92 V102 H152 V92"
+        stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M104 134 V144 H152 V134"
+        stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+
+  <path d="M92 168 L88 192 H112 L116 168"
+        stroke="currentColor" stroke-width="6" stroke-linejoin="round" />
+  <path d="M164 168 L168 192 H144 L140 168"
+        stroke="currentColor" stroke-width="6" stroke-linejoin="round" />
+</svg>

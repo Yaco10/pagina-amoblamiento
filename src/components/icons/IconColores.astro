@@ -1,0 +1,59 @@
+---
+const { class: className = "" } = Astro.props;
+---
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 256 256"
+  fill="none"
+  class={className}
+>
+  <!-- Círculo -->
+  <circle
+    cx="128"
+    cy="128"
+    r="112"
+    stroke="currentColor"
+    stroke-width="6"
+  />
+
+  <!-- Icono interno apenas más chico (≈4px) -->
+   <g transform="translate(18 20) scale(0.84)">
+    <!-- Columna izquierda -->
+    <rect x="64" y="64" width="32" height="32" fill="#F7F1E1" />
+    <rect x="64" y="96" width="32" height="32" fill="#FFE7A3" />
+    <rect x="64" y="128" width="32" height="32" fill="#FFD36A" />
+    <rect x="64" y="160" width="32" height="32" fill="#E3D8C1" />
+
+    <!-- Columna centro -->
+    <rect x="96" y="64" width="32" height="32" fill="#FFE1B3" />
+    <rect x="96" y="96" width="32" height="32" fill="#FFB86B" />
+    <rect x="96" y="128" width="32" height="32" fill="#CFA25A" />
+    <rect x="96" y="160" width="32" height="32" fill="#B4833D" />
+
+    <!-- Placas inclinadas -->
+    <rect
+      x="128"
+      y="72"
+      width="44"
+      height="72"
+      transform="rotate(-20 128 72)"
+      fill="#A86A3D"
+    />
+    <rect
+      x="148"
+      y="92"
+      width="44"
+      height="72"
+      transform="rotate(-20 148 92)"
+      fill="#6B4A2E"
+    />
+    <rect
+      x="168"
+      y="112"
+      width="44"
+      height="72"
+      transform="rotate(-20 168 112)"
+      fill="#3F3F2C"
+    />
+  </g>
+</svg>

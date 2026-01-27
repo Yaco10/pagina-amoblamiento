@@ -1,0 +1,48 @@
+---
+import Container from "../ui/Container.astro";
+---
+
+<header class="sticky top-0 z-50 border-b border-brand-wood/10 bg-brand-base/80 backdrop-blur">
+  <Container>
+    <div class="flex h-16 items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="group flex items-center gap-3">
+        <div class="h-9 w-9 rounded-2xl bg-brand-earth shadow-sm ring-1 ring-brand-wood/10 transition group-hover:opacity-90"></div>
+        <span class="text-sm font-semibold tracking-tight text-brand-wood">
+          Pagina Amoblamientos
+        </span>
+      </a>
+
+      <!-- Nav (desktop) -->
+      <nav class="hidden md:block" aria-label="Navegación principal">
+        <ul class="flex items-center gap-8 text-sm font-medium text-brand-earth">
+          <li>
+            <a
+              href="#nosotros"
+              class="rounded-full px-2 py-1 transition hover:text-brand-wood"
+            >
+              Nosotros
+            </a>
+          </li>
+          <li>
+            <a
+              href="#productos"
+              class="rounded-full px-2 py-1 transition hover:text-brand-wood"
+            >
+              Productos
+            </a>
+          </li>
+          <li>
+            <a
+              href="#contacto"
+              class="rounded-full px-2 py-1 transition hover:text-brand-wood"
+            >
+              Contacto
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+    </div>
+  </Container>
+</header>

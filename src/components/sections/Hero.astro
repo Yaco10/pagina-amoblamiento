@@ -1,0 +1,39 @@
+---
+import Container from "../ui/Container.astro";
+---
+
+<section class="relative min-h-[70vh] w-full overflow-hidden">
+  <img
+    src="/images/hero2.jpg"
+    alt="Amoblamientos modernos"
+    class="absolute inset-0 h-full w-full object-cover"
+  />
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <Container>
+    <div class="relative flex min-h-[70vh] items-center justify-center">
+      <div class="flex max-w-2xl flex-col items-center text-center">
+        <p class="text-[11px] font-medium uppercase tracking-[0.35em] text-white/80">
+          Amoblamientos
+        </p>
+
+        <h1 class="mt-4 text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl">
+          Diseño funcional para tu hogar
+        </h1>
+
+        <p class="mt-5 max-w-xl text-base font-light leading-relaxed text-white/85">
+          Modelos ya diseñados, disponibles en distintos colores y combinaciones,
+          listos para acompañar tu espacio.
+        </p>
+        <a
+          href="#productos"
+          class="hidden sm:inline-flex rounded-full border border-brand-wood/15 bg-brand-surface/60 mt-5 px-5 py-2 text-sm font-medium text-brand-wood shadow-sm transition hover:bg-brand-surface"
+        >
+          Ver productos
+        </a>
+      </div>
+    </div>
+  </Container>
+</section>
