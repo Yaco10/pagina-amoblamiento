@@ -1,0 +1,44 @@
+---
+import Container from "../ui/Container.astro";
+import PhotoCollage from "../ui/PhotoCollage.astro";
+---
+
+<section class="py-24">
+  <Container>
+    <div class="flex flex-row items-center justify-center gap-12">
+      
+      <!-- IZQUIERDA: Collage + stats -->
+      <div class="flex w-1/2 flex-col">
+        <PhotoCollage
+          images={[
+            { src: "/images/hero.jpg", alt: "Ambiente 1" },
+            { src: "/images/hero2.jpg", alt: "Ambiente 2" },
+            { src: "/images/hero.jpg", alt: "Ambiente 3" },
+          ]}
+        />
+
+        <div class="my-8 flex flex-col gap-4">
+          <!-- stats / atributos acá -->
+        </div>
+      </div>
+
+      <!-- DERECHA: TEXTO ORIGINAL -->
+      <div class="flex w-1/2 flex-col items-center justify-center text-center">
+        <p class="py-4 text-[11px] font-medium uppercase tracking-[0.35em] text-[color:var(--color-brand-accent)]-800">
+          Un poco de
+        </p>
+
+        <h2 class="mx-auto mb-2 w-fit text-center text-xl font-bold uppercase tracking-[0.25em] text-[color:var(--color-brand-earth)]-800">
+          Nosotros
+          <span class="mx-auto mt-2 block h-[2px] w-full bg-[color:var(--color-brand-accent)]"></span>
+        </h2>
+
+        <p class="mt-5 max-w-xl text-base font-light leading-relaxed text-[color:var(--color-brand-earth)]">
+          Modelos ya diseñados, disponibles en distintos colores y combinaciones,
+          listos para acompañar tu espacio.
+        </p>
+      </div>
+
+    </div>
+  </Container>
+</section>

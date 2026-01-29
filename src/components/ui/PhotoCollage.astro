@@ -1,0 +1,147 @@
+---
+type Props = {
+  images: { src: string; alt?: string }[];
+  className?: string;
+  heightClass?: string;
+};
+
+const { images, className = "", heightClass = "h-[420px]" } = Astro.props;
+const imgs = [...images, ...images, ...images].slice(0, 3);
+---
+
+<div
+  class={`pcollage relative w-full max-w-xl ${heightClass} ${className}`}
+  data-collage
+  style="--px:0px; --py:0px;"
+>
+  <!-- 1 -->
+  <a
+    href="#"
+    class="card absolute left-0 top-6 z-30 h-[320px] w-[65%]
+           overflow-hidden rounded-xl shadow-xl
+           transition-transform duration-500 ease-out
+           hover:scale-[1.03]"
+  >
+    <img src={imgs[0].src} alt={imgs[0].alt ?? ""} class="h-full w-full object-cover" />
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/15 to-transparent"></div>
+  </a>
+
+  <!-- 2 -->
+  <a
+    href="#"
+    class="card absolute right-0 top-0 z-20 h-[200px] w-[45%]
+           overflow-hidden rounded-xl shadow-lg
+           transition-transform duration-500 ease-out
+           hover:scale-[1.04]"
+  >
+    <img src={imgs[1].src} alt={imgs[1].alt ?? ""} class="h-full w-full object-cover" />
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent"></div>
+  </a>
+
+  <!-- 3 -->
+  <a
+    href="#"
+    class="card absolute right-6 bottom-0 z-10 h-[220px] w-[48%]
+           overflow-hidden rounded-xl shadow-md
+           transition-transform duration-500 ease-out
+           hover:scale-[1.04]"
+  >
+    <img src={imgs[2].src} alt={imgs[2].alt ?? ""} class="h-full w-full object-cover" />
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent"></div>
+  </a>
+</div>
+
+<style>
+  /* Parallax con variables: no pisa el scale del hover */
+  .pcollage .card {
+    transform: translate(var(--px, 0px), var(--py, 0px));
+  }
+  /* El hover scale de Tailwind se suma porque Tailwind setea transform.
+     Para evitar conflicto, hacemos que el parallax esté en el wrapper (pcollage),
+     y que el hover scale ocurra dentro con translate en wrapper. */
+  .pcollage { --px: 0px; --py: 0px; }
+</style>
+
+<script>
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!reduce) {
+    document.querySelectorAll("[data-collage]").forEach((root) => {
+      if (!(root instanceof HTMLElement)) return;
+      if (root.dataset.inited === "1") return;
+      root.dataset.inited = "1";
+
+      const cards = Array.from(root.querySelectorAll(".card"))
+        .filter((n) => n instanceof HTMLElement);
+
+      // Guardamos z-index original de cada card
+      cards.forEach((el) => {
+        if (!el.dataset.z) {
+          el.dataset.z = String(getComputedStyle(el).zIndex || "");
+        }
+      });
+
+      let raf = 0;
+
+      /** @param {PointerEvent} ev */
+      function onMove(ev) {
+        const r = root.getBoundingClientRect();
+        const x = (ev.clientX - r.left) / r.width - 0.5;
+        const y = (ev.clientY - r.top) / r.height - 0.5;
+
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          const forces = [10, 16, 22];
+          cards.forEach((el, idx) => {
+            const k = forces[idx] || 12;
+            const tx = Math.max(-1, Math.min(1, x)) * k;
+            const ty = Math.max(-1, Math.min(1, y)) * k;
+
+            el.style.setProperty("--px", tx + "px");
+            el.style.setProperty("--py", ty + "px");
+          });
+        });
+      }
+
+      function onLeave() {
+        cancelAnimationFrame(raf);
+        cards.forEach((el) => {
+          el.style.setProperty("--px", "0px");
+          el.style.setProperty("--py", "0px");
+        });
+      }
+
+      // ✅ Traer al frente la card hover
+      function bringToFront(activeEl) {
+        // reset todos a su z original
+        cards.forEach((el) => {
+          const z = el.dataset.z;
+          if (z) el.style.zIndex = z; // vuelve a como estaba
+          else el.style.zIndex = "";  // o limpia
+        });
+        // y subimos la activa
+        activeEl.style.zIndex = "50";
+      }
+
+      function resetZ() {
+        cards.forEach((el) => {
+          const z = el.dataset.z;
+          if (z) el.style.zIndex = z;
+          else el.style.zIndex = "";
+        });
+      }
+
+      cards.forEach((el) => {
+        el.addEventListener("pointerenter", () => bringToFront(el));
+        el.addEventListener("pointerleave", () => resetZ());
+      });
+
+      root.addEventListener("pointermove", onMove);
+      root.addEventListener("pointerleave", () => {
+        onLeave();
+        resetZ();
+      });
+    });
+  }
+</script>
+
