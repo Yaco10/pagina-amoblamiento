@@ -3,12 +3,12 @@ import Container from "../ui/Container.astro";
 import PhotoCollage from "../ui/PhotoCollage.astro";
 ---
 
-<section class="py-24">
-  <Container>
+<section class="py-24 bg-[color:var(--color-brand-surface)]/30">
+  <Container> 
     <div class="flex flex-row items-center justify-center gap-12">
       
       <!-- IZQUIERDA: Collage + stats -->
-      <div class="flex w-1/2 flex-col">
+      <div class="flex w-1/2 flex-col items-center">
         <PhotoCollage
           images={[
             { src: "/images/hero.jpg", alt: "Ambiente 1" },
