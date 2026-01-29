@@ -10,26 +10,28 @@ const imgs = [...images, ...images, ...images].slice(0, 3);
 ---
 
 <div
-  class={`pcollage relative w-full max-w-xl ${heightClass} ${className} flex items-center`}
+  class={`pcollage relative w-full max-w-3xl ${heightClass} ${className} flex items-center`}
   data-collage
   style="--px:0px; --py:0px;"
 >
-  <!-- 1 -->
+  <!-- Imagen principal -->
   <a
     href="#"
-    class="card absolute left-0 top-6 z-30 h-[320px] w-[65%]
-           overflow-hidden rounded-xl shadow-xl
+    class="card absolute right-6 top-10 z-30
+           h-[320px] w-[58%]
+           overflow-hidden rounded-2xl shadow-xl
            transition-transform duration-500 ease-out
            hover:scale-[1.03]"
   >
     <img src={imgs[0].src} alt={imgs[0].alt ?? ""} class="h-full w-full object-cover" />
-    <div class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/15 to-transparent"></div>
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent"></div>
   </a>
 
-  <!-- 2 -->
+  <!-- Secundaria superior -->
   <a
     href="#"
-    class="card absolute right-0 top-0 z-20 h-[200px] w-[45%]
+    class="card absolute left-4 top-0 z-20
+           h-[190px] w-[42%]
            overflow-hidden rounded-xl shadow-lg
            transition-transform duration-500 ease-out
            hover:scale-[1.04]"
@@ -38,10 +40,11 @@ const imgs = [...images, ...images, ...images].slice(0, 3);
     <div class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent"></div>
   </a>
 
-  <!-- 3 -->
+  <!-- Secundaria inferior -->
   <a
     href="#"
-    class="card absolute right-6 bottom-0 z-10 h-[220px] w-[48%]
+    class="card absolute left-10 bottom-0 z-10
+           h-[210px] w-[45%]
            overflow-hidden rounded-xl shadow-md
            transition-transform duration-500 ease-out
            hover:scale-[1.04]"
@@ -50,6 +53,7 @@ const imgs = [...images, ...images, ...images].slice(0, 3);
     <div class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/10 to-transparent"></div>
   </a>
 </div>
+
 
 <style>
   /* Parallax con variables: no pisa el scale del hover */
