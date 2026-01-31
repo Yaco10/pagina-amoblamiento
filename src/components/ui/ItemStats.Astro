@@ -1,0 +1,36 @@
+---
+interface Props {
+  title?: string;
+  value?: string;
+  unit?: string;
+  description?: string;
+  icon?: any;
+}
+
+const {
+  title = "",
+  value = "",
+  unit = "",
+  description = "",
+  icon: Icon,
+} = Astro.props as Props;
+---
+
+<div class="group flex flex-col justify-center items-center text-center max-w-3xs transform transition-transform duration-200 hover:scale-110">
+   <div class="py-2">
+    <Icon />
+  </div>
+
+  <div class="relative flex flex-col text-center items-center w-full gap-0">
+    <h3 class="m-0 font-bold text-lg leading-none mb-0">
+      {title} 
+    </h3>
+    <h2 class="m-0 font-bold text-2xl">
+      {value} {unit}
+    </h2>
+
+    <p class="absolute w-full py-14 opacity-0 translate-y-8 transition-all duration-300 text-sm
+     text-base font-light leading-relaxed tracking-[0.05em] text-[color:var(--color-brand-earth)] 
+    group-hover:opacity-100 group-hover:translate-y-0">{description}</p>
+  </div>
+</div>

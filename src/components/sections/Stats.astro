@@ -1,9 +1,28 @@
 ---
 import Container from "../ui/Container.astro";
+import ItemStats from "../ui/ItemStats.astro"
+import IconCarpintero from "../icons/IconCarpintero.astro";
+import IconCliente from "../icons/IconClientes.astro";
 ---
 
 <section class="py-16 sm:py-24 relative  w-full overflow-hidden flex items-center">
     <Container>
-    
+        <div class="flex flex-row justify-around items-center">
+            <ItemStats
+            title="Experiencia"
+            value="+25"
+            unit="años"
+            description="Trabajos en carpiteria hace mas de 25 años"
+            icon={IconCarpintero}
+        />  
+        <ItemStats
+            title="Clientes"
+            value="+200"
+            unit=""
+            description="Mas de 200 clientes satisfechos con su producto"
+            icon={IconCliente}
+        />  
+        </div>
+       
     </Container>
 </section>
