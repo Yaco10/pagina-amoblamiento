@@ -1,6 +1,7 @@
 --- 
 import Container from "../ui/Container.astro"
 import Carousel from "../ui/Carousel";
+import UnderlinedText from "../ui/UnderlinedText.astro";
 
 const slides = [
   { src: "/images/hero.jpg", alt: "Slide 1" },
@@ -11,13 +12,13 @@ const slides = [
 
 <section class="py-16 sm:py-20 lg:py-24 bg-[color:var(--color-brand-surface)]/30">
     <Container> 
-        <h2 class="mx-auto mb-2 w-fit text-center text-xl font-medium uppercase tracking-[0.25em] text-[color:var(--color-brand-earth)]-800">
-            Piezas destacadas
-            <span class="mx-auto mt-2 block h-[2px] w-full bg-[color:var(--color-brand-accent)]"></span>
-        </h2>
-        <p class="text-center text-sm mb-8">Descubrí nuestras promociones y muebles más elegidos.</p>
-        <div class="mx-auto max-w-6xl">
-            <Carousel slides={slides} client:visible />
+        <div class="flex flex-col justify-center items-center">
+            <UnderlinedText text="Piezas destacadas" />
+            <p class="mb-8">Descubrí nuestras promociones y muebles más elegidos.</p>
+            <div class="mx-auto max-w-6xl">
+                <Carousel slides={slides} client:visible />
+            </div>
         </div>
+        
     </Container>
 </section>

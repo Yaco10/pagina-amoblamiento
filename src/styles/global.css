@@ -1,14 +1,109 @@
 @import "tailwindcss";
 
+/* =========================
+   THEME
+========================= */
 @theme {
+  /* Colores */
   --color-brand-base: #F7F1E1;
   --color-brand-surface: #E3D8C1;
   --color-brand-accent: #B4833D;
   --color-brand-wood: #66371B;
   --color-brand-coyote: #81754B;
   --color-brand-earth: #3F3F2C;
+
+  /* Fuentes */
+  --font-heading: "Safira March", serif;
+  --font-body: "Tenor Sans", system-ui, sans-serif;
 }
 
-body {
-  font-family: "DM Sans", system-ui, sans-serif;
+/* =========================
+   FONT FACE
+========================= */
+@font-face {
+  font-family: "Safira March";
+  src: url("/fonts/SafiraMarch-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================
+   BASE STYLES
+========================= */
+@layer base {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    @apply bg-[var(--color-brand-base)] text-[var(--color-brand-earth)];
+    font-family: var(--font-body);
+    line-height: 1.6;
+  }
+
+  /* HEADINGS */
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    letter-spacing: 0.10em;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.2;
+  }
+
+  /* TEXT */
+  p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 65ch;
+  }
+
+  small {
+    font-size: 0.875rem;
+    opacity: 0.8;
+  }
+}
+
+/* =========================
+   UTILITIES
+========================= */
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* =========================
+   COMPONENTS
+========================= */
+@layer components {
+  .text-section {
+    @apply mx-auto mb-2 w-fit text-center
+           text-xl font-medium uppercase
+           tracking-[0.25em];
+    color: var(--color-brand-earth);
+  }
 }

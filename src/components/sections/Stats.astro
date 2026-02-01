@@ -5,9 +5,9 @@ import IconCarpintero from "../icons/IconCarpintero.astro";
 import IconCliente from "../icons/IconClientes.astro";
 ---
 
-<section class="py-16 sm:py-24 relative  w-full overflow-hidden flex items-center">
+<section class="py-16 sm:py-24 relative w-full overflow-hidden flex items-center">
     <Container>
-        <div class="flex flex-row justify-around items-center">
+        <div class="flex flex-row justify-around items-center w-full gap-4">
             <ItemStats
             title="Experiencia"
             value="+25"
@@ -21,6 +21,20 @@ import IconCliente from "../icons/IconClientes.astro";
             unit=""
             description="Mas de 200 clientes satisfechos con su producto"
             icon={IconCliente}
+        />  
+           <ItemStats
+            title="Experiencia"
+            value="+25"
+            unit="años"
+            description="Trabajos en carpiteria hace mas de 25 años"
+            icon={IconCarpintero}
+        />  
+           <ItemStats
+            title="Experiencia"
+            value="+25"
+            unit="años"
+            description="Trabajos en carpiteria hace mas de 25 años"
+            icon={IconCarpintero}
         />  
         </div>
        

@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets"
+import UnderlinedText from "./UnderlinedText.astro"
 
 type Props = {
   src: ImageMetadata
@@ -10,11 +11,8 @@ const { src } = Astro.props as Props
 
 <div class=" max-w-lg flex flex-row bg-[color:var(--color-brand-surface)]/30">
     <div class="flex flex-col justify-center items-center w-1/2 m-10">
-        <h2 class="mx-auto mb-2 w-fit text-center text-xl font-medium uppercase tracking-[0.25em] text-[color:var(--color-brand-earth)]-800">
-            Titulo Producto
-            <span class="mx-auto mt-2 block h-[2px] w-full bg-[color:var(--color-brand-accent)]"></span>
-        </h2>
-        <p></p>
+        <UnderlinedText text="Titulo Producto" />
+        
         <a
           href="#productos"
           class="hidden sm:inline-flex rounded-sm border border-brand-wood/15 bg-brand-surface/60 mt-5 px-5 py-2 text-sm font-medium text-brand-wood shadow-sm transition hover:bg-brand-surface"
