@@ -1,5 +1,5 @@
 ---
-import PaletaColor from './svg/PaletaColor.astro';
+import Mueble from "../svg/Mueble.astro"
 
 type Size = "sm" | "md" | "lg";
 type Props = { size?: Size };
@@ -22,10 +22,10 @@ const iconSizes = {
 <div
   class={`flex items-center justify-center rounded-full
           border-3 border-[color:var(--color-brand-wood)]
-          
+
           ${circleSizes[size]}`}
 >
-  <PaletaColor
+  <Mueble
     class={`${iconSizes[size]} text-[var(--color-brand-wood)]`}
     aria-hidden="true"
   />

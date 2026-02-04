@@ -1,0 +1,24 @@
+---
+import UnderlinedText from "./UnderlinedText.astro";
+import FormButton from "../ui/buttons/FormButton.astro"
+---
+
+<div class="shadow-2xl p-6">
+  <div class="m-12">
+    <UnderlinedText text="Formulario de Contacto" size="md"/>
+  </div>
+  <form action="DESTINO" method="POST" class="flex flex-col justify-center items-center">
+    <label for="email"></label>
+    <input id="email" type="email" name="email" placeholder="Email"
+    class="w-3/4 py-1 border-b-2 border-[var(--color-brand-accent)]/30 focus:outline-none focus:border-[var(--color-brand-accent)] transition-all duration-300 ease-linear">
+
+    <label for="asunto"></label>
+    <input id="asunto" type="text" name="asunto" placeholder="Asunto" 
+    class="w-3/4 py-1 mt-4 border-b-2 border-[var(--color-brand-accent)]/30 focus:outline-none focus:border-[var(--color-brand-accent)] transition-all duration-300 ease-linear">
+
+    <label for="descripcion"></label>
+    <textarea id="descripcion" name="descripcion" placeholder="Descripcion"  
+    class="w-3/4 py-1 mt-4 border-b-2 border-[var(--color-brand-accent)]/30  resize-none focus:outline-none focus:border-[var(--color-brand-accent)] transition-all duration-300 ease-linear"></textarea>
+    <FormButton>
+  </form>
+</div>

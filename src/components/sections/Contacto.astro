@@ -1,0 +1,83 @@
+---
+import FacebookIcon from "../icons/redSocial/FacebookIcon.astro";
+import InstagramIcon from "../icons/redSocial/InstagramIcon.astro";
+import WhatasppIcon from "../icons/redSocial/WhatasppIcon.astro";
+import Container from "../ui/Container.astro";
+import UnderlinedText from "../ui/UnderlinedText.astro";
+import FormContact from "../ui/FormContact.astro"
+---
+<section class="min-h-[70vh] sm:min-h-[80vh] lg:min-h-screen pb-6 bg-[color:var(--color-brand-surface)]/30" >
+    <Container>
+        <div class="flex flex-row h-screen">
+            <div class="w-[10%] flex flex-col justify-end gap-4">
+                <a
+                    href="https://wa.me/549XXXXXXXXXX"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                     aria-label="Contactar por WhatsApp"
+                >
+                    <InstagramIcon
+                        size="md"
+                        class="hover:text-[color:var(--color-brand-accent)] transition-colors"
+                    />
+                <a
+                    href="https://wa.me/549XXXXXXXXXX"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                     aria-label="Contactar por WhatsApp"
+                >
+                    <FacebookIcon
+                        size="md"
+                        class="hover:text-[color:var(--color-brand-accent)] transition-colors"
+                    />
+                </a>
+                <a
+                    href="https://wa.me/549XXXXXXXXXX"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                     aria-label="Contactar por WhatsApp"
+                >
+                    <WhatasppIcon
+                        size="md"
+                        class="hover:text-[color:var(--color-brand-accent)] transition-colors"
+                    />
+                </a>
+            </div>
+            <div class="w-[90%] flex flex-row justify-around items-center">
+                <div class="flex flex-col justify-start items-center">
+                    <div class="pb-2">
+                        <UnderlinedText text="Contacto" />
+                    </div>
+                    <p class="py-2">Contactanos a travez de los siguientes medios</p>
+                    <div class="py-4 flex flex-col justify-center items-center">
+                        <h3>
+                            Telefono
+                        </h3>
+                        <p class="text-sm text-[color:var(--color-brand-accent)]">
+                            +54 2494
+                        </p>
+                    </div>
+                    <div class="py-4 flex flex-col justify-center items-center">
+                        <h3>
+                            Email
+                        </h3>
+                        <p class="text-sm text-[color:var(--color-brand-accent)]">
+                            +54 2494
+                        </p>
+                    </div>
+                    <div class="py-4 flex flex-col justify-center items-center">
+                        <h3>
+                            Ubicacion
+                        </h3>
+                        <p class="text-sm text-[color:var(--color-brand-accent)]">
+                            Actualmente No disponible
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <FormContact/>
+                </div>
+            </div>
+        </div>
+    </Container>
+</section>

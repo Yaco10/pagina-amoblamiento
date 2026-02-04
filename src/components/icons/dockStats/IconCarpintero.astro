@@ -1,43 +1,29 @@
 ---
+type Size = "sm" | "md" | "lg" | "xl";
+
 type Props = {
-  /** Color del ícono (hex, rgb, hsl, var(--...)) */
-  color?: string;
-  /** Tamaño (número en px o string tipo "1.5rem", "32px") */
-  size?: number | string;
-  /** Clases extra (Tailwind o CSS) */
+  size?: Size;
   class?: string;
-  /** Accesibilidad: si lo usás como decorativo, dejalo true */
-  ariaHidden?: boolean;
-  /** Título accesible si NO es decorativo */
-  title?: string;
 };
 
-const {
-  color = "currentColor",
-  size = 64,
-  class: className = "",
-  ariaHidden = true,
-  title = "Icono carpintero",
-} = Astro.props;
+const { size = "lgg", class: className = "" } = Astro.props;
 
-const computedSize = typeof size === "number" ? `${size}px` : size;
-const ariaProps = ariaHidden
-  ? { "aria-hidden": "true" }
-  : { role: "img", "aria-label": title };
+const sizes = {
+  sm: "h-4 w-4",
+  md: "h-6 w-6",
+  lg: "h-10 w-10",
+  lgg: "h-13 w-13",
+  xl: "h-16 w-16",
+} as const;
 ---
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 512.002 512.002"
-  width={computedSize}
-  height={computedSize}
-  class={className}
+  viewBox="0 0 512 512"
   fill="currentColor"
-  style={{ color }}
-  {...ariaProps}
+  class={`${sizes[size]} ${className}`}
+  aria-hidden="true"
 >
-  {!ariaHidden && <title>{title}</title>}
-
   <g>
     <g>
       <path d="M278.258,46.245L259.001,2.433c-0.999-2.274-3.791-3.131-5.896-1.805l-39.12,24.665l-5.046-11.48    c-2.532-5.759-9.283-8.464-15.136-5.893c-5.796,2.549-8.439,9.338-5.891,15.134l5.093,11.587l-8.402,3.693    c-3.023,1.328-4.396,4.855-3.068,7.879l12.086,27.498c1.328,3.023,4.855,4.396,7.879,3.068l8.402-3.693l18.69,42.523    c5.396-6.005,12.616-9.745,20.307-10.881l-17.922-40.776l44.625-12.144C278.002,51.156,279.257,48.517,278.258,46.245z"/>

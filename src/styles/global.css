@@ -22,7 +22,7 @@
 ========================= */
 @font-face {
   font-family: "Safira March";
-  src: url("/fonts/SafiraMarch-Regular.ttf") format("truetype");
+  src: url("/fonts/SafiraMarch-Regular.ttf") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -61,16 +61,17 @@
   }
 
   h3 {
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-size: clamp(1rem, 1.8vw, 1.5rem);
     line-height: 1.2;
   }
 
   /* TEXT */
   p {
     font-family: var(--font-body);
-    font-size: 1rem;
-    line-height: 1.7;
-    max-width: 65ch;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+  
   }
 
   small {
@@ -102,8 +103,18 @@
 @layer components {
   .text-section {
     @apply mx-auto mb-2 w-fit text-center
-           text-xl font-medium uppercase
+           text-3xl font-medium uppercase
            tracking-[0.25em];
     color: var(--color-brand-earth);
   }
+}
+
+/* =========================
+   AUTOFILL FORMS
+========================= */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: rgb(var(--color-brand-earth-rgb) / 0.3);
+  transition: background-color 9999s ease-out 0s;
 }

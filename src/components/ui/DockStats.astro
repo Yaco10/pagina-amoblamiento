@@ -1,0 +1,43 @@
+---
+import ItemStats from "../ui/ItemStats.astro"
+import IconCarpintero from "../icons/dockStats/IconCarpintero.astro"
+import IconClientes from "../icons/dockStats/IconClientes.astro"
+import IconMadera from "../icons/dockStats/IconMadera.astro"
+import IconGarantia from "../icons/dockStats/IconGarantia.astro"
+---
+
+<div class="w-full">
+  <div class="flex flex-row justify-around items-center w-full gap-4">
+    <ItemStats
+      title="Años de experiencia"
+      value="+25"
+      unit="años"
+      description="Más de 25 años fabricando muebles a medida con terminaciones prolijas y duraderas."
+      icon={IconCarpintero}
+    />
+
+    <ItemStats
+      title="Clientes"
+      value="+200"
+      unit=""
+      description="Más de 200 clientes satisfechos. Atención cercana antes, durante y después de la entrega."
+      icon={IconClientes}
+    />
+
+    <ItemStats
+      title="Tipos de material"
+      value="Melamina"
+      unit=""
+      description="Trabajamos con distintos materiales y colores (melamina y opciones según modelo) para adaptarlo a tu espacio."
+      icon={IconMadera}
+    />
+
+    <ItemStats
+      title="Garantía"
+      value="Cambio"
+      unit=""
+      description="Si el producto llega dañado, lo reemplazamos o resolvemos el problema sin vueltas."
+      icon={IconGarantia}
+    />
+  </div>
+</div>
