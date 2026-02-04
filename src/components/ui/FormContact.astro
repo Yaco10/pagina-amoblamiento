@@ -7,7 +7,7 @@ import FormButton from "../ui/buttons/FormButton.astro"
   <div class="m-12">
     <UnderlinedText text="Formulario de Contacto" size="md"/>
   </div>
-  <form action="DESTINO" method="POST" class="flex flex-col justify-center items-center">
+  <form id="contact-form" class="flex flex-col justify-center items-center">
     <label for="email"></label>
     <input id="email" type="email" name="email" placeholder="Email"
     class="w-3/4 py-1 border-b-2 border-[var(--color-brand-accent)]/30 focus:outline-none focus:border-[var(--color-brand-accent)] transition-all duration-300 ease-linear">
@@ -16,9 +16,48 @@ import FormButton from "../ui/buttons/FormButton.astro"
     <input id="asunto" type="text" name="asunto" placeholder="Asunto" 
     class="w-3/4 py-1 mt-4 border-b-2 border-[var(--color-brand-accent)]/30 focus:outline-none focus:border-[var(--color-brand-accent)] transition-all duration-300 ease-linear">
 
-    <label for="descripcion"></label>
-    <textarea id="descripcion" name="descripcion" placeholder="Descripcion"  
+    <label for="mensaje"></label>
+    <textarea id="mensaje" name="mensaje" placeholder="mensaje"  
     class="w-3/4 py-1 mt-4 border-b-2 border-[var(--color-brand-accent)]/30  resize-none focus:outline-none focus:border-[var(--color-brand-accent)] transition-all duration-300 ease-linear"></textarea>
     <FormButton>
   </form>
 </div>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const button = document.getElementById("button-form");
+
+  if (!(form instanceof HTMLFormElement)) {
+    throw new Error("No se encontró el form #contact-form");
+  }
+
+  if (!(button instanceof HTMLButtonElement)) {
+    throw new Error("No se encontró el botón");
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    button.classList.add("is-forced")
+    button.textContent = "Enviando...";
+    button.disabled = true;
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      body: new FormData(form),
+    });
+
+    if (res.ok) {
+      button.textContent = "Enviado ✔";
+    } else {
+      button.textContent = "Error";
+    }
+    setTimeout(() => {
+        form.reset();
+        button.classList.remove("is-forced")
+        button.textContent = "Enviar Mail";
+        button.disabled = false;
+      }, 1000);
+  });
+</script>
+

@@ -118,3 +118,34 @@ select:-webkit-autofill {
   -webkit-text-fill-color: rgb(var(--color-brand-earth-rgb) / 0.3);
   transition: background-color 9999s ease-out 0s;
 }
+
+/* =========================
+   HOVER BUTTON FORM
+========================= */
+
+.btn-accent {
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.btn-accent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: color-mix(in srgb, var(--color-brand-accent) 20%, transparent);
+  transform: translateX(-110%);
+  transition: transform 700ms ease;
+  z-index: -1;
+}
+
+/* Hover normal */
+.btn-accent:hover::before {
+  transform: translateX(0);
+}
+
+/* “Hover forzado” (cuando enviás) */
+.btn-accent.is-forced::before {
+  transform: translateX(0);
+}
+
