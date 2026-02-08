@@ -53,7 +53,7 @@ export default function Carousel({ slides }) {
   return (
     <div className="relative">
       {/* Viewport */}
-      <div ref={emblaRef} className="overflow-hidden rounded-md">
+      <div ref={emblaRef} className="overflow-hidden rounded-xl shadow-[0_6px_12px_rgba(0,0,0,0.3)] ">
         {/* Container */}
         <div className="flex">
           {slides.map((s, i) => (
@@ -75,7 +75,8 @@ export default function Carousel({ slides }) {
         aria-label="Slide anterior"
         onClick={scrollPrev}
         disabled={!canPrev}
-        className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white backdrop-blur transition hover:bg-black/60 disabled:opacity-40 cursor-pointer"
+        className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white backdrop-blur transition hover:bg-black/60 disabled:opacity-40 disabled:cursor-not-allowed
+enabled:cursor-pointer"
       >
         {/* chevron left */}
         <svg viewBox="0 0 20 20" className="h-5 w-5" fill="currentColor" aria-hidden="true">
@@ -93,7 +94,8 @@ export default function Carousel({ slides }) {
         aria-label="Siguiente slide"
         onClick={scrollNext}
         disabled={!canNext}
-        className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white backdrop-blur transition hover:bg-black/60 disabled:opacity-40 cursor-pointer"
+        className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white backdrop-blur transition hover:bg-black/60 disabled:opacity-40 disabled:cursor-not-allowed
+enabled:cursor-pointer"
       >
         {/* chevron right */}
         <svg viewBox="0 0 20 20" className="h-5 w-5" fill="currentColor" aria-hidden="true">
@@ -113,6 +115,7 @@ export default function Carousel({ slides }) {
             type="button"
             aria-label={`Ir a slide ${i + 1}`}
             onClick={() => scrollTo(i)}
+            aria-current={i === selectedIndex ? "true" : undefined}
             className={[
               "h-2.5 w-2.5 rounded-full transition cursor-pointer",
               i === selectedIndex ? "bg-neutral-900" : "bg-neutral-300 hover:bg-neutral-400",

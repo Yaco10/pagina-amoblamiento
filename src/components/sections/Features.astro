@@ -1,28 +1,54 @@
 ---
 import Container from "../ui/Container.astro";
-import IconMueble from "../icons/features/IconMueble.astro"
-import IconColor from "../icons/features/IconColor.astro"
-import IconEnvio from "../icons/features/IconEnvio.astro"
+import IconMueble from "../icons/features/IconMueble.astro";
+import IconColor from "../icons/features/IconColor.astro";
+import IconEnvio from "../icons/features/IconEnvio.astro";
 ---
 
-<section class="py-16 sm:py-24 relative  w-full overflow-hidden flex items-center">
-    <Container>
-       <div class="flex flex-row w-full items-start justify-center gap-24">
-            <div class="flex flex-col items-center justify-center text-center gap-y-4">
-                <IconMueble size="lg" />
-                <h2 class="font-bold text-xl">MODELOS PREDISEÑADOS</h2>
-                <p class="max-w-sm">Diseños inspirados en el mobiliario moderno actual, pensados para ofrecer funcionalidad, estética y practicidad en cada espacio.</p>
-            </div>
-            <div class="flex flex-col items-center justify-center text-center gap-y-4">
-                <IconColor size="lg" />
-                <h2 class="font-bold text-xl">SELECCION DE COLOR</h2>
-                <p class="max-w-sm">Cada modelo puede fabricarse con distintos tipos y colores de placas de melamina, para que elijas la terminación que mejor se adapte a tu hogar.</p>
-            </div>
-            <div class="flex flex-col items-center justify-center text-center gap-y-4">
-                <IconEnvio size="lg" />
-                <h2 class="font-bold text-xl">ENVIOS</h2>
-                <p class="max-w-sm">Realizamos envíos a todo el país, coordinando la entrega para que tu mueble llegue de forma segura y en el menor tiempo posible.</p>
-            </div>
-       </div>
-    </Container>
+<section
+  class="py-16 sm:py-24 relative w-full overflow-hidden flex items-center"
+>
+  <Container>
+    <div class="grid grid-cols-1 gap-24 md:grid-cols-2 lg:grid-cols-3">
+      <div
+        class="flex flex-col items-center  text-center"
+      >
+        <div class="h-16 flex items-center justify-center">
+          <IconMueble size="lg" />
+        </div>
+        <h2 class="font-bold text-xl mt-8 mb-0">MODELOS PREDISEÑADOS</h2>
+        <p class="max-w-sm">
+          Diseños modernos desarrollados para distintos espacios del hogar,
+          listos para adaptarse a tus medidas y necesidades. Ahorrás tiempo de
+          decisión sin resignar estética ni funcionalidad.
+        </p>
+      </div>
+      <div
+        class="flex flex-col items-center  text-center"
+      >
+        <div class="h-16 flex items-center justify-center">
+          <IconColor size="lg" />
+        </div>
+        <h2 class="font-bold text-xl mt-8 mb-0">SELECCION DE COLOR</h2>
+        <p class="max-w-sm">
+          Cada modelo se ofrece en distintos colores de melamina, cuidadosamente
+          seleccionados para combinar diseño y funcionalidad. Elegís la opción
+          que mejor se adapta a tu espacio, sin alterar el diseño del mueble.
+        </p>
+      </div>
+      <div
+        class="flex flex-col items-center  text-center "
+      >
+        <div class="h-16 flex items-center justify-center">
+          <IconEnvio size="lg" />
+        </div>
+        <h2 class="font-bold text-xl mt-8 mb-0">ENVIOS</h2>
+        <p class="max-w-sm">
+          Realizamos envíos a todo el país mediante transporte especializado,
+          con embalaje seguro para muebles. Recibís tu mueble en condiciones
+          óptimas, listo para usar.
+        </p>
+      </div>
+    </div>
+  </Container>
 </section>
