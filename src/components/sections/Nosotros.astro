@@ -4,27 +4,84 @@ import PhotoCollage from "../ui/PhotoCollage.astro";
 import UnderlinedText from "../ui/UnderlinedText.astro";
 ---
 
-<section class="py-24 bg-[color:var(--color-brand-surface)]/30">
-  <Container> 
-    <div class="flex flex-row items-center justify-center gap-8">
-      
-      <div class="flex w-1/2 flex-col items-center">
-        <PhotoCollage
-          images={[
-            { src: "/images/hero.jpg", alt: "Ambiente 1" },
-            { src: "/images/hero2.jpg", alt: "Ambiente 2" },
-            { src: "/images/hero.jpg", alt: "Ambiente 3" },
-          ]}
-        />
+<section class="py-16 sm:py-24 bg-[color:var(--color-brand-surface)]/30">
+  <Container>
+    <div class="flex flex-col items-center gap-10 md:flex-row md:items-center md:justify-center md:gap-8">
 
-        <div class="my-8 flex flex-col gap-4">
+      <!-- IZQUIERDA -->
+      <div class="w-full md:w-1/2">
+
+        <!-- MOBILE -->
+        <div class="md:hidden flex flex-col gap-4">
+
+          <!-- Imagen 1: título -->
+          <div class="relative aspect-[16/10] overflow-hidden rounded-3xl">
+            <img
+              src="/images/hero.jpg"
+              alt="Ambiente 1"
+              class="h-full w-full object-cover"
+            />
+
+            <!-- Overlay negro + gradiente -->
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent"></div>
+
+            <!-- Texto centrado -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+              <p class="text-xs font-medium uppercase tracking-[0.35em] text-white/80">
+                Un poco de
+              </p>
+
+              <div class="mt-2 [&_*]:text-white [&_*]:decoration-white/70">
+                <UnderlinedText text="Nosotros" size="3xl" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Imagen 2: párrafo -->
+          <div class="relative aspect-[16/10] overflow-hidden rounded-3xl">
+            <img
+              src="/images/hero2.jpg"
+              alt="Ambiente 2"
+              class="h-full w-full object-cover"
+            />
+
+            <!-- Overlay negro + gradiente -->
+            <div class="absolute inset-0 bg-black/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent"></div>
+
+            <!-- Texto centrado -->
+            <div class="absolute inset-0 flex items-center justify-center px-6 text-center">
+              <p class="mx-auto max-w-md text-sm leading-relaxed tracking-wide text-white/90">
+                Modelos ya diseñados, disponibles en distintos colores y combinaciones,
+                listos para acompañar tu espacio.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- DESKTOP: COLLAGE -->
+        <div class="hidden md:block">
+          <PhotoCollage
+            images={[
+              { src: "/images/hero.jpg", alt: "Ambiente 1" },
+              { src: "/images/hero2.jpg", alt: "Ambiente 2" },
+              { src: "/images/hero.jpg", alt: "Ambiente 3" },
+            ]}
+          />
+        </div>
+
+        <!-- Stats / atributos -->
+        <div class="mt-8 flex flex-col gap-4">
           <!-- stats / atributos acá -->
         </div>
+
       </div>
 
-      <!-- DERECHA: TEXTO ORIGINAL -->
-      <div class="flex w-1/2 flex-col items-center justify-center text-center">
-        <p class="py-4 text-md font-medium uppercase tracking-[0.35em] text-[color:var(--color-brand-accent)]-800">
+      <!-- DERECHA: TEXTO (solo desktop) -->
+      <div class="hidden w-full md:flex md:w-1/2 flex-col items-center justify-center text-center">
+        <p class="py-4 text-md font-medium uppercase tracking-[0.35em] text-[color:var(--color-brand-accent)]">
           Un poco de
         </p>
 
