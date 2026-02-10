@@ -16,8 +16,8 @@ const {
 } = Astro.props as Props;
 ---
 
-<div class="group flex flex-col justify-center items-center text-center w-full max-w-sm transform transition-transform duration-200 hover:scale-110">
-   <div class="py-2 group-hover:text-[color:var(--color-brand-earth)]">
+<div class="group flex flex-col justify-center scale-80 items-center text-center w-full max-w-sm transform transition-transform duration-200 md:scale-100 md:hover:scale-110 ">
+   <div class="py-2 group-hover:text-[color:var(--color-brand-earth)] felx-">
     <Icon />
   </div>
 
@@ -29,7 +29,7 @@ const {
       {value} {unit}
     </h2>
 
-    <p class=" absolute w-full py-14 opacity-0 translate-y-8 transition-all duration-300 text-sm
+    <p class="lg:absolute w-full md:py-14 md:opacity-0 md:translate-y-8 transition-all duration-300 text-sm
      text-base font-light leading-relaxed tracking-[0.05em] text-[color:var(--color-brand-earth)] 
     group-hover:opacity-100 group-hover:translate-y-0">{description}</p>
   </div>
