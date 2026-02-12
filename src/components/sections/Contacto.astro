@@ -4,80 +4,91 @@ import InstagramIcon from "../icons/redSocial/InstagramIcon.astro";
 import WhatasppIcon from "../icons/redSocial/WhatasppIcon.astro";
 import Container from "../ui/Container.astro";
 import UnderlinedText from "../ui/UnderlinedText.astro";
-import FormContact from "../ui/FormContact.astro"
+import FormContact from "../ui/FormContact.astro";
 ---
-<section class="min-h-[70vh] sm:min-h-[80vh] lg:min-h-screen pb-6 bg-[color:var(--color-brand-surface)]/30" >
-    <Container>
-        <div class="flex flex-row h-screen">
-            <div class="w-[10%] flex flex-col justify-end gap-4">
-                <a
-                    href="https://wa.me/549XXXXXXXXXX"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                     aria-label="Contactar por WhatsApp"
-                >
-                    <InstagramIcon
-                        size="md"
-                        class="hover:text-[color:var(--color-brand-accent)] transition-colors"
-                    />
-                <a
-                    href="https://wa.me/549XXXXXXXXXX"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                     aria-label="Contactar por WhatsApp"
-                >
-                    <FacebookIcon
-                        size="md"
-                        class="hover:text-[color:var(--color-brand-accent)] transition-colors"
-                    />
-                </a>
-                <a
-                    href="https://wa.me/549XXXXXXXXXX"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                     aria-label="Contactar por WhatsApp"
-                >
-                    <WhatasppIcon
-                        size="md"
-                        class="hover:text-[color:var(--color-brand-accent)] transition-colors"
-                    />
-                </a>
+
+<section class="py-12 min-h-[70vh] sm:min-h-[80vh] lg:min-h-screen bg-[color:var(--color-brand-surface)]/30">
+  <Container>
+    <div class="flex flex-col md:flex-row min-h-[70vh] sm:min-h-[80vh] lg:min-h-screen">
+
+      <!-- ICONOS (mobile abajo / desktop izquierda) -->
+      <div class="order-2 md:order-1 md:w-[64px] flex md:flex-col justify-center md:justify-end gap-4 py-6 md:py-0">
+        <a
+          href="https://wa.me/549XXXXXXXXXX"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+          class="inline-flex"
+        >
+          <InstagramIcon
+            size="md"
+            class="hover:text-[color:var(--color-brand-accent)] transition-colors"
+          />
+        </a>
+
+        <a
+          href="https://wa.me/549XXXXXXXXXX"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+          class="inline-flex"
+        >
+          <FacebookIcon
+            size="md"
+            class="hover:text-[color:var(--color-brand-accent)] transition-colors"
+          />
+        </a>
+
+        <a
+          href="https://wa.me/549XXXXXXXXXX"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          class="inline-flex"
+        >
+          <WhatasppIcon
+            size="md"
+            class="hover:text-[color:var(--color-brand-accent)] transition-colors"
+          />
+        </a>
+      </div>
+
+      <!-- CONTENIDO (miti-miti en desktop) -->
+      <div class="order-1 md:order-2 flex-1 min-w-0 py-10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16">
+
+          <!-- INFO -->
+          <div class="w-full md:w-1/2 flex flex-col items-center text-center">
+            <div class="pb-2">
+              <UnderlinedText text="Contacto" />
             </div>
-            <div class="w-[90%] flex flex-col lg:flex-row justify-around items-center overflow-hidden">
-                <div class="flex flex-col justify-start items-center">
-                    <div class="pb-2">
-                        <UnderlinedText text="Contacto" />
-                    </div>
-                    <p class="py-2">Contactanos a travez de los siguientes medios</p>
-                    <div class="py-4 flex flex-col justify-center items-center">
-                        <h3>
-                            Telefono
-                        </h3>
-                        <p class="text-sm text-[color:var(--color-brand-accent)]">
-                            +54 2494
-                        </p>
-                    </div>
-                    <div class="py-4 flex flex-col justify-center items-center">
-                        <h3>
-                            Email
-                        </h3>
-                        <p class="text-sm text-[color:var(--color-brand-accent)]">
-                            +54 2494
-                        </p>
-                    </div>
-                    <div class="py-4 flex flex-col justify-center items-center">
-                        <h3>
-                            Ubicacion
-                        </h3>
-                        <p class="text-sm text-[color:var(--color-brand-accent)]">
-                            Actualmente No disponible
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <FormContact/>
-                </div>
+
+            <p class="py-2">Contactanos a trav&eacute;s de los siguientes medios</p>
+
+            <div class="py-4 flex flex-col items-center">
+              <h3>Tel&eacute;fono</h3>
+              <p class="text-sm text-[color:var(--color-brand-accent)]">+54 2494</p>
             </div>
+
+            <div class="py-4 flex flex-col items-center">
+              <h3>Email</h3>
+              <p class="text-sm text-[color:var(--color-brand-accent)]">tuemail@dominio.com</p>
+            </div>
+
+            <div class="py-4 flex flex-col items-center">
+              <h3>Ubicaci&oacute;n</h3>
+              <p class="text-sm text-[color:var(--color-brand-accent)]">Actualmente no disponible</p>
+            </div>
+          </div>
+
+          <!-- FORM -->
+          <div class="w-full md:w-1/2 min-w-0 flex justify-center md:justify-end">
+            <FormContact />
+          </div>
+
         </div>
-    </Container>
+      </div>
+
+    </div>
+  </Container>
 </section>
