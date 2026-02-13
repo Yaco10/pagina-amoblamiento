@@ -16,21 +16,52 @@ const {
 } = Astro.props as Props;
 ---
 
-<div class="group flex flex-col justify-center scale-80 items-center text-center w-full max-w-sm transform transition-transform duration-200 md:scale-100 md:hover:scale-110 ">
-   <div class="py-2 group-hover:text-[color:var(--color-brand-earth)] felx-">
+<div
+  class="group flex flex-col justify-center items-center text-center
+         w-full max-w-sm
+         transform transition-transform duration-200
+         scale-80 lg:scale-100
+         [@media(hover:hover)]:lg:hover:scale-110"
+>
+  <!-- ICON -->
+  <div
+    class="py-2 transition-colors
+           [@media(hover:hover)]:group-hover:text-[color:var(--color-brand-earth)]"
+  >
     <Icon />
   </div>
 
-  <div class="relative flex flex-col text-center items-center w-full gap-0">
-    <h3 class="m-0 font-bold text-lg leading-none mb-0 group-hover:text-[color:var(--color-brand-earth)]">
-      {title} 
+  <!-- CONTENT -->
+  <div class="relative flex flex-col items-center w-full gap-0">
+    <h3
+      class="m-0 font-bold text-lg leading-none mb-0 transition-colors
+             [@media(hover:hover)]:group-hover:text-[color:var(--color-brand-earth)]"
+    >
+      {title}
     </h3>
-    <h2 class="m-0 font-bold text-2xl group-hover:text-[color:var(--color-brand-earth)]">
+
+    <h2
+      class="m-0 font-bold text-2xl transition-colors
+             [@media(hover:hover)]:group-hover:text-[color:var(--color-brand-earth)]"
+    >
       {value} {unit}
     </h2>
 
-    <p class="lg:absolute w-full md:py-14 md:opacity-0 md:translate-y-8 transition-all duration-300 text-sm
-     text-base font-light leading-relaxed tracking-[0.05em] text-[color:var(--color-brand-earth)] 
-    group-hover:opacity-100 group-hover:translate-y-0">{description}</p>
+    <p
+      class="w-full text-sm font-light leading-relaxed tracking-[0.05em]
+             text-[color:var(--color-brand-earth)]
+             transition-all duration-300
+
+             opacity-100 translate-y-0
+
+             [@media(hover:hover)]:absolute
+             [@media(hover:hover)]:py-14
+             [@media(hover:hover)]:opacity-0
+             [@media(hover:hover)]:translate-y-8
+             [@media(hover:hover)]:group-hover:opacity-100
+             [@media(hover:hover)]:group-hover:translate-y-0"
+    >
+      {description}
+    </p>
   </div>
 </div>
