@@ -1,0 +1,34 @@
+---
+import Container from "../../ui/Container.astro";
+import ProductCard from "../../ui/products/ProductCard";
+import { Product } from "../../../data/product";
+
+const product: Product = {
+  id: "prod-001",
+  slug: "camiseta-astro-dev",
+  title: "Camiseta Astro Dev",
+  category: "Baño", // usa un valor válido de tu ProductCategory
+  shortDescription: "Camiseta cómoda para desarrolladores que aman Astro.",
+  description: `
+    Esta camiseta está diseñada especialmente para desarrolladores.
+    Fabricada en algodón 100%, es cómoda, ligera y perfecta para largas
+    sesiones de código.
+
+    Ideal para fans de Astro y el desarrollo moderno.
+  `,
+  images: [
+    "/images/products/camiseta-astro-dev-1.jpg",
+    "/images/products/camiseta-astro-dev-2.jpg"
+  ],
+  tags: ["astro", "developer", "clothing"],
+  featured: true
+};
+
+---
+
+
+<section>
+    <Container>
+        <ProductCard product={product}/>
+    </Container>
+</section>
