@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
-import FiltersSidebar, { ProductFilters } from "./FiltersSidebar.tsx"
+import FiltersSidebar from "./FiltersSidebar.tsx"
+import type { ProductFilters } from "./FiltersSidebar.tsx"
 import ProductGrid from "./ProductGrid.tsx"
 import { PRODUCTS } from "../../data/product.ts";
 
@@ -104,8 +105,6 @@ export default function ProductsPage({ category }: Props) {
           })
         }
       />
-
-      <main>
         <div className="mb-2 text-sm text-black/60">
           Categoría:{" "}
           <span className="font-semibold text-black">
@@ -117,9 +116,7 @@ export default function ProductsPage({ category }: Props) {
           Resultados:{" "}
           <span className="font-semibold text-black">{filtered.length}</span>
         </div>
-
         <ProductGrid products={filtered} />
-      </main>
     </div>
   );
 }

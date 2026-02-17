@@ -1,6 +1,32 @@
 ---
-import ProductPage from "../../components/products/ProductPage"
-const { category } = Astro.params
+import Container from "../../components/ui/Container.astro";
+import ProductPage from "../../components/products/ProductPage.tsx";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const { category } = Astro.params;
+const categoryLabel = (category ?? "all").toLowerCase();
 ---
 
-<ProductPage category={category}/>
+<BaseLayout>
+<main class="py-10">
+  <Container>
+    <header class="mb-8">
+      <p class="text-sm text-black/60">
+        Productos /
+        <span class="ml-1 font-semibold text-black">
+          {categoryLabel === "all" ? "Todas" : categoryLabel}
+        </span>
+      </p>
+
+      <h1 class="mt-3 text-3xl font-semibold tracking-tight">
+        {categoryLabel === "all"
+          ? "Todos los productos"
+          : `Productos de ${categoryLabel}`}
+      </h1>
+    </header>
+
+    <ProductPage client:load category={category} />
+  </Container>
+</main>
+</BaseLayout>
+

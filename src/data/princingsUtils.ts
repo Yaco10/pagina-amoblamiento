@@ -1,4 +1,4 @@
-import { InstallmentPlan } from "./product";
+import type { InstallmentPlan } from "./product.ts";
 
 export const calculateFinalPrice = (
   originalPrice: number,

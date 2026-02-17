@@ -119,7 +119,7 @@ export const PRODUCTS: Product[] = [
     id: "p-005",
     slug: "biblioteca-modular",
     title: "Biblioteca modular abierta",
-    category: "Living",
+    category: "Cocina",
     shortDescription:
       "Modular, adaptable a distintos espacios.",
     description:

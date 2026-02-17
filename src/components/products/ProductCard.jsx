@@ -1,4 +1,4 @@
-import { calculateFinalPrice, calculateInstallments } from "../../../data/princingsUtils.ts";
+import { calculateFinalPrice, calculateInstallments } from "../../data/princingsUtils.ts";
 
 export default function ProductCard({ product }) {
   if (!product) return null;
