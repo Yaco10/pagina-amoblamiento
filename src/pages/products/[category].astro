@@ -8,23 +8,21 @@ const categoryLabel = (category ?? "all").toLowerCase();
 ---
 
 <BaseLayout>
-<main class="py-10">
-  <Container>
-    <header class="mb-8">
+<main class="">
+  <header class="p-4 px-8  bg-[color:var(--color-brand-surface)] w-full">
       <p class="text-sm text-black/60">
         Productos /
         <span class="ml-1 font-semibold text-black">
           {categoryLabel === "all" ? "Todas" : categoryLabel}
         </span>
       </p>
-
-      <h1 class="mt-3 text-3xl font-semibold tracking-tight">
+      <h1 class="mt-0 text-3xl font-semibold tracking-tight">
         {categoryLabel === "all"
           ? "Todos los productos"
-          : `Productos de ${categoryLabel}`}
+          : `Muebles de ${category}`}
       </h1>
     </header>
-
+  <Container>
     <ProductPage client:load category={category} />
   </Container>
 </main>

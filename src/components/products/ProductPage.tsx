@@ -13,7 +13,10 @@ function uniqueStrings(values: Array<string | undefined | null>) {
 const SLUG_TO_CATEGORY: Record<string, string | "all"> = {
   all: "all",
   bano: "Baño",
+  baño: "Baño",
   cocina: "Cocina",
+  comedor: "Comedor",
+  Oficina: "Oficina",
   dormitorio: "Dormitorio",
   living: "Living",
 };
@@ -61,7 +64,8 @@ export default function ProductsPage({ category }: Props) {
 
     return PRODUCTS.filter((p: AnyProduct) => {
       // ✅ categoria (desde Astro)
-      const okCategory = categoryName === "all" ? true : p.category === categoryName;
+      console.log(categoryName)
+      const okCategory = categoryName === "all" ? true : p.category.includes(categoryName);;
 
       // texto
       const haystack = [
@@ -89,7 +93,7 @@ export default function ProductsPage({ category }: Props) {
   }, [filters, categoryName]);
 
   return (
-    <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-4 py-8 lg:grid-cols-[280px_1fr]">
+    <div className="grid w-full grid-cols-1 gap-6 px-4 py-8 lg:grid-cols-[280px_1fr]">
       <FiltersSidebar
         availableColors={availableColors}
         availableSizes={availableSizes}
@@ -105,7 +109,8 @@ export default function ProductsPage({ category }: Props) {
           })
         }
       />
-        <div className="mb-2 text-sm text-black/60">
+       <div>
+         <div className="mb-2 text-sm text-black/60">
           Categoría:{" "}
           <span className="font-semibold text-black">
             {categoryName === "all" ? "Todas" : categoryName}
@@ -117,6 +122,7 @@ export default function ProductsPage({ category }: Props) {
           <span className="font-semibold text-black">{filtered.length}</span>
         </div>
         <ProductGrid products={filtered} />
+       </div>
     </div>
   );
 }

@@ -13,7 +13,7 @@ export default function ProductCard({ product }) {
     : product.originalPrice;
 
   return (
-    <article className="w-full max-w-sm overflow-hidden ">
+    <article className="w-full max-w-md overflow-hidden ">
       
       <a href={product.slug} className="block group">
         <div className="relative aspect-[19/20] w-full overflow-hidden bg-black/5 rounded-sm">

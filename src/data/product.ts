@@ -7,6 +7,15 @@ export type ProductCategory =
   | "Oficina"
   | "Otros";
 
+export type ColorMelamina =
+  | "Black"
+  | "White";
+
+  export type MobelSize =
+  | "Chico"
+  | "Mediano"
+  | "Grande";
+
 export type InstallmentPlan = {
   enabled: boolean;          // si ofrece cuotas
   count: number;             // cantidad de cuotas (ej: 3, 6, 12)
@@ -25,10 +34,11 @@ export type Product = {
   originalPrice: number;
   discountPercentage?: number;
 
-  category: ProductCategory;
+  category: ProductCategory[];
 
   images: string[];
-
+  color: ColorMelamina;
+  size: MobelSize;
   tags?: string[];
   featured?: boolean;
   stock?: number;
@@ -61,6 +71,8 @@ export const PRODUCTS: Product[] = [
     originalPrice: 220000,
     discountPercentage: 15,
     images: ["/images/products/mesaluz01-01.jpg", "/images/products/mesaluz01-02.jpg"],
+    color: "Black",
+    size: "Chico",
     tags: ["minimal", "flotante"],
     featured: true,
     stock: 5,
@@ -69,11 +81,12 @@ export const PRODUCTS: Product[] = [
     id: "p-002",
     slug: "bajo-mesada-nordico",
     title: "Bajo mesada nórdico",
-    category: "Cocina",
+    category: ["Cocina"],
     shortDescription: "Diseño moderno adaptable a tus medidas.",
     description: "Bajo mesada configurable con cajones y puertas.",
     originalPrice: 240000,
     images: ["/images/hero2.jpg", "/images/hero.jpg"],
+    color: "White",
     tags: ["a medida", "nordico"],
     stock: 3,
   },
@@ -81,13 +94,15 @@ export const PRODUCTS: Product[] = [
     id: "p-003",
     slug: "placard-moderno",
     title: "Placard moderno 3 puertas",
-    category: "Dormitorio",
+    category: ["Dormitorio"],
     shortDescription: "Amplio y personalizable.",
     description:
       "Placard con interior configurable y herrajes premium.",
     originalPrice: 470000,
     discountPercentage: 10,
     images: ["/products/placard/1.jpg", "/products/placard/2.jpg"],
+    color: "Black",
+    size: "Chico",
     tags: ["placard", "moderno"],
     featured: true,
     stock: 2,
@@ -99,7 +114,7 @@ export const PRODUCTS: Product[] = [
     id: "p-004",
     slug: "escritorio-industrial",
     title: "Escritorio industrial hierro y madera",
-    category: "Oficina",
+    category: ["Oficina"],
     shortDescription:
       "Estructura reforzada, ideal para home office.",
     description:
@@ -107,6 +122,8 @@ export const PRODUCTS: Product[] = [
     originalPrice: 180000,
     discountPercentage: 5,
     images: ["/products/escritorio/1.jpg", "/products/escritorio/2.jpg"],
+    color: "White",
+    size: "Mediano",
     tags: ["industrial", "home office"],
     stock: 8,
     installments: {
@@ -119,7 +136,7 @@ export const PRODUCTS: Product[] = [
     id: "p-005",
     slug: "biblioteca-modular",
     title: "Biblioteca modular abierta",
-    category: "Cocina",
+    category: ["Cocina"],
     shortDescription:
       "Modular, adaptable a distintos espacios.",
     description:
@@ -127,6 +144,8 @@ export const PRODUCTS: Product[] = [
     originalPrice: 260000,
     discountPercentage: 12,
     images: ["/products/biblioteca/1.jpg", "/products/biblioteca/2.jpg"],
+    color: "Black",
+    size: "Chico",
     tags: ["biblioteca", "modular"],
     featured: true,
     stock: 4,
@@ -140,13 +159,15 @@ export const PRODUCTS: Product[] = [
     id: "p-006",
     slug: "mesa-comedor-roble",
     title: "Mesa comedor roble macizo",
-    category: "Comedor",
+    category: ["Baño"],
     shortDescription:
       "Robusta, premium, a medida.",
     description:
       "Mesa de comedor en madera maciza con terminación protectora. Se fabrica en distintas medidas y tonos.",
     originalPrice: 520000,
     images: ["/products/mesa/1.jpg", "/products/mesa/2.jpg"],
+    color: "Black",
+    size: "Chico",
     tags: ["madera maciza", "premium"],
     stock: 1,
     installments: {

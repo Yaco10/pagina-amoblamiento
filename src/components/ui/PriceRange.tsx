@@ -40,14 +40,18 @@ export default function PriceRange({
         renderTrack={({ props, children }) => (
           <div
             {...props}
-            className="h-2 w-full rounded-full"
+            className="h-2 w-full rounded-full "
             style={{
               background: getTrackBackground({
-                values,
-                colors: ["rgba(0,0,0,0.12)", "rgba(0,0,0,0.95)", "rgba(0,0,0,0.12)"],
-                min,
-                max,
-              }),
+              values,
+              colors: [
+            "rgba(0,0,0,0.12)",
+            "var(--color-brand-wood)",
+            "rgba(0,0,0,0.12)"
+                  ],
+             min,
+             max,
+             }),
             }}
           >
             {children}
