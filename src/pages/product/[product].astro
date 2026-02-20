@@ -1,0 +1,16 @@
+---
+import Container from "../../components/ui/Container.astro";
+import ProductPage from "../../components/products/ProductsPage.tsx";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const { product } = Astro.params;
+const productLabel = (product ?? "all").toLowerCase();
+---
+
+<BaseLayout>
+<main class="">
+  <Container>
+    
+  </Container>
+</main>
+</BaseLayout>

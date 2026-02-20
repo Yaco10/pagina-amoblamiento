@@ -1,6 +1,6 @@
 ---
 import Container from "../../components/ui/Container.astro";
-import ProductPage from "../../components/products/ProductPage.tsx";
+import ProductsPage from "../../components/products/ProductsPage";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const { category } = Astro.params;
@@ -23,7 +23,7 @@ const categoryLabel = (category ?? "all").toLowerCase();
       </h1>
     </header>
   <Container>
-    <ProductPage client:load category={category} />
+    <ProductsPage client:load category={category} />
   </Container>
 </main>
 </BaseLayout>

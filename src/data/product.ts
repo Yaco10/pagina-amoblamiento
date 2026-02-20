@@ -37,8 +37,8 @@ export type Product = {
   category: ProductCategory[];
 
   images: string[];
-  color: ColorMelamina;
-  size: MobelSize;
+  color: ColorMelamina[];
+  size: MobelSize[];
   tags?: string[];
   featured?: boolean;
   stock?: number;
@@ -71,8 +71,8 @@ export const PRODUCTS: Product[] = [
     originalPrice: 220000,
     discountPercentage: 15,
     images: ["/images/products/mesaluz01-01.jpg", "/images/products/mesaluz01-02.jpg"],
-    color: "Black",
-    size: "Chico",
+    color: ["Black"],
+    size: ["Chico"],
     tags: ["minimal", "flotante"],
     featured: true,
     stock: 5,
@@ -86,7 +86,8 @@ export const PRODUCTS: Product[] = [
     description: "Bajo mesada configurable con cajones y puertas.",
     originalPrice: 240000,
     images: ["/images/hero2.jpg", "/images/hero.jpg"],
-    color: "White",
+    color: ["White"],
+    size: ["Chico"],
     tags: ["a medida", "nordico"],
     stock: 3,
   },
@@ -101,14 +102,14 @@ export const PRODUCTS: Product[] = [
     originalPrice: 470000,
     discountPercentage: 10,
     images: ["/products/placard/1.jpg", "/products/placard/2.jpg"],
-    color: "Black",
-    size: "Chico",
+    color: ["Black"],
+    size: ["Chico"],
     tags: ["placard", "moderno"],
     featured: true,
     stock: 2,
   },
 
-  // 🆕 NUEVOS CON CUOTAS
+  // NUEVOS CON CUOTAS
 
   {
     id: "p-004",
@@ -122,14 +123,14 @@ export const PRODUCTS: Product[] = [
     originalPrice: 180000,
     discountPercentage: 5,
     images: ["/products/escritorio/1.jpg", "/products/escritorio/2.jpg"],
-    color: "White",
-    size: "Mediano",
+    color: ["White"],
+    size: ["Mediano"],
     tags: ["industrial", "home office"],
     stock: 8,
     installments: {
       enabled: true,
       count: 6,
-      hasInterest: false, // ✅ 6 sin interés
+      hasInterest: false, // sin interés
     },
   },
   {
@@ -144,15 +145,15 @@ export const PRODUCTS: Product[] = [
     originalPrice: 260000,
     discountPercentage: 12,
     images: ["/products/biblioteca/1.jpg", "/products/biblioteca/2.jpg"],
-    color: "Black",
-    size: "Chico",
+    color: ["Black"],
+    size: ["Chico"],
     tags: ["biblioteca", "modular"],
     featured: true,
     stock: 4,
     installments: {
       enabled: true,
       count: 3,
-      hasInterest: false, // ✅ 3 sin interés
+      hasInterest: false, // sin interés
     },
   },
   {
@@ -166,15 +167,15 @@ export const PRODUCTS: Product[] = [
       "Mesa de comedor en madera maciza con terminación protectora. Se fabrica en distintas medidas y tonos.",
     originalPrice: 520000,
     images: ["/products/mesa/1.jpg", "/products/mesa/2.jpg"],
-    color: "Black",
-    size: "Chico",
+    color: ["Black"],
+    size: ["Chico"],
     tags: ["madera maciza", "premium"],
     stock: 1,
     installments: {
       enabled: true,
       count: 12,
-      hasInterest: true,         // ✅ 12 con interés
+      hasInterest: true, // con interés
       monthlyInterestRate: 0.05, // 5% mensual
     },
   },
-];
+]
