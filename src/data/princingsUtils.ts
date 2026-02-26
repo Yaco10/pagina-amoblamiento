@@ -11,6 +11,15 @@ export const calculateFinalPrice = (
   );
 };
 
+export const formatPrice = (price: number) => {
+  const number = new Intl.NumberFormat("es-AR", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(price);
+
+  return `$${number}`;
+};
+
 // Si hay interés, aplica interés compuesto mensual: total = price * (1+r)^n
 export const calculateInstallments = (
   basePrice: number,

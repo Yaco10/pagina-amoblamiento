@@ -1,16 +1,21 @@
 ---
 import Container from "../../components/ui/Container.astro";
-import ProductPage from "../../components/products/ProductsPage.tsx";
+import ProductPage from "../../components/products/ProductPage.tsx";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const { product } = Astro.params;
 const productLabel = (product ?? "all").toLowerCase();
+
+if (!product) {
+  return new Response("Producto no especificado", { status: 400 });
+}
+
 ---
 
 <BaseLayout>
 <main class="">
   <Container>
-    
+    <ProductPage client:load product={product}/>
   </Container>
 </main>
 </BaseLayout>

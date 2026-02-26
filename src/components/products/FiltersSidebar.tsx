@@ -36,7 +36,7 @@ export default function FiltersSidebar({
       <div className="sticky top-4  p-4">
         {/* BUSCADOR */}
         <div className="mb-5">
-          <p className="text-lg font-bold">Buscar</p>
+          <p className="text-lg ">Buscar</p>
           <label className=""></label>
           <input
             value={value.q}
@@ -128,7 +128,7 @@ export default function FiltersSidebar({
 
           {/* TAMAÑO */}
           <section className="mt-5 border-t border-b border-black/10 py-4">
-            <h3 className="mb-3 text-base font-bold">Tamaño</h3>
+            <p className="mb-3 text-base font-bold">Tamaño</p>
 
             <div className="space-y-2">
               {availableSizes.map((s) => {

@@ -1,4 +1,4 @@
-import { calculateFinalPrice, calculateInstallments } from "../../data/princingsUtils.ts";
+import { calculateFinalPrice, calculateInstallments, formatPrice } from "../../data/princingsUtils.ts";
 
 export default function ProductCard({ product }) {
   if (!product) return null;
@@ -15,7 +15,7 @@ export default function ProductCard({ product }) {
   return (
     <article className="w-full max-w-md overflow-hidden ">
       
-      <a href={product.slug} className="block group">
+      <a href={`/product/${product.slug}`} className="block group">
         <div className="relative aspect-[19/20] w-full overflow-hidden bg-black/5 rounded-sm">
           {cover && (
             <img
@@ -45,13 +45,13 @@ export default function ProductCard({ product }) {
         </a>
 
         <p className="text-lg font-bold">
-          ${finalPrice}
+          {formatPrice(finalPrice)}
         </p>
 
         {hasDiscount && (
           <div className="mt-1 flex items-center gap-2">
             <p className="text-sm text-black/60 line-through">
-              ${product.originalPrice}
+              {formatPrice(product.originalPrice)}
             </p>
             <span className="rounded-full bg-emerald-500 px-2 py-0.5 text-xs font-semibold text-white">
               -{product.discountPercentage}% OFF
@@ -63,7 +63,7 @@ export default function ProductCard({ product }) {
         {product.installments?.enabled && (
           <div className="mt-1 flex flex-wrap items-center gap-x-3 text-sm text-emerald-600">
             <span className="font-medium">
-              {inst.count} x ${inst.perInstallment}
+              {inst.count} x {formatPrice(inst.perInstallment)}
             </span>
             {!inst.hasInterest && (
               <span className="font-semibold">

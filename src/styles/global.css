@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+:root {
+  --font-heading: "Safira March", serif;
+  --font-body: "Tenor Sans", system-ui, sans-serif;
+}
+
 /* =========================
    THEME
 ========================= */
@@ -14,7 +19,7 @@
 
   /* Fuentes */
   --font-heading: "Safira March", serif;
-  --font-body: "Tenor Sans", system-ui, sans-serif;
+  --font-body:"DM Sans", sans-serif;
 }
 
 /* =========================
@@ -38,7 +43,7 @@
 
   body {
     @apply bg-[var(--color-brand-base)] text-[var(--color-brand-earth)];
-    font-family: var(--font-body);
+    font-family: var(--font-body, "DM Sans", sans-serif); /* <-- FIX */
     line-height: 1.6;
     overflow-x: hidden;
   }

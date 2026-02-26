@@ -2,44 +2,83 @@
 import Container from "../ui/Container.astro";
 ---
 
-<header class="sticky top-0 z-50 border-b border-brand-wood/10 bg-brand-base/80 backdrop-blur ">
+<header class="sticky top-0 z-50 border-b border-brand-wood/10 bg-brand-base/80 backdrop-blur">
   <Container>
     <div class="flex h-16 items-center justify-between w-full">
       <!-- Logo -->
-      <a href="/" >
-        <img class="h-20 w-20 rounded-2xl object-contain ring-brand-wood/10 transition group-hover:opacity-90" src="/images/LogoPrincpial.png" alt="">
+      <a href="/">
+        <img
+          class="h-20 w-20 rounded-2xl object-contain"
+          src="/images/LogoPrincpial.png"
+          alt=""
+        />
       </a>
 
       <!-- Nav (desktop) -->
       <nav class="hidden md:block" aria-label="Navegación principal">
         <ul class="flex items-center gap-8 text-sm font-bold text-brand-earth">
           <li>
-            <a
-              href="#nosotros"
-              class="rounded-full px-2 py-1 transition hover:text-brand-wood"
-            >
+            <a href="#nosotros" class="rounded-full px-2 py-1 transition hover:text-brand-wood">
               Nosotros
             </a>
           </li>
-          <li>
-            <a
-              href="#productos"
-              class="rounded-full px-2 py-1 transition hover:text-brand-wood"
+
+          <!-- Products -->
+          <li class="group cursor-pointer">
+            <span class="rounded-full px-2 py-1 transition hover:text-brand-wood">
+              Products
+            </span>
+
+            <!-- WRAPPER puente: ocupa desde arriba, y el contenido baja con padding -->
+            <div
+              class="
+                fixed inset-x-0 top-0 z-50
+                bg-none
+                pt-16
+                opacity-0 invisible pointer-events-none
+                group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto
+                transition duration-250
+              "
             >
-              Productos
-            </a>
+              <!-- Panel -->
+              <div class="bg-brand-base shadow-lg border-t border-brand-wood/10">
+                <Container>
+                  <div class="p-6">
+                    <ul class="flex gap-6 items-center justify-center">
+                      <li>
+                        <a href="/products/Cocina" class="rounded-full px-2 py-1 transition hover:text-brand-wood">
+                          Cocina
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/products/Living" class="rounded-full px-2 py-1 transition hover:text-brand-wood">
+                          Living
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/products/Dormitorio" class="rounded-full px-2 py-1 transition hover:text-brand-wood">
+                          Dormitorio
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/products/Oficina" class="rounded-full px-2 py-1 transition hover:text-brand-wood">
+                          Oficina
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </Container>
+              </div>
+            </div>
           </li>
+
           <li>
-            <a
-              href="#contacto"
-              class="rounded-full px-2 py-1 transition hover:text-brand-wood"
-            >
+            <a href="#contacto" class="rounded-full px-2 py-1 transition hover:text-brand-wood">
               Contacto
             </a>
           </li>
         </ul>
       </nav>
-      
     </div>
   </Container>
 </header>

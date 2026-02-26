@@ -63,7 +63,7 @@ export const PRODUCTS: Product[] = [
     id: "p-001",
     slug: "mueble-tv-flotante",
     title: "Mueble TV flotante",
-    category: "Living",
+    category: ["Living"],
     shortDescription:
       "Minimal, suspendido, con guardado. Terminación premium.",
     description:
@@ -85,8 +85,8 @@ export const PRODUCTS: Product[] = [
     shortDescription: "Diseño moderno adaptable a tus medidas.",
     description: "Bajo mesada configurable con cajones y puertas.",
     originalPrice: 240000,
-    images: ["/images/hero2.jpg", "/images/hero.jpg"],
-    color: ["White"],
+    images: ["/images/products/01-mesaluz01-white-01.jpg", "/images/products/01-mesaluz01-white-02.jpg","/images/products/01-mesaluz01-black-01.jpg","/images/products/01-mesaluz01-black-02.jpg"],
+    color: ["White", "Black"],
     size: ["Chico"],
     tags: ["a medida", "nordico"],
     stock: 3,
