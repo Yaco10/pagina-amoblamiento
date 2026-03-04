@@ -2,9 +2,9 @@
 import Container from "../../components/ui/Container.astro";
 import ProductPage from "../../components/products/ProductPage.tsx";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProductAccordion from "../../components/ui/ProductAccordion.tsx";
 
 const { product } = Astro.params;
-const productLabel = (product ?? "all").toLowerCase();
 
 if (!product) {
   return new Response("Producto no especificado", { status: 400 });
@@ -13,9 +13,10 @@ if (!product) {
 ---
 
 <BaseLayout>
-<main class="">
-  <Container>
-    <ProductPage client:load product={product}/>
-  </Container>
-</main>
+  <main>
+    <Container>
+      <ProductPage client:load product={product} />
+      <ProductAccordion client:load product={product} />
+    </Container>
+  </main>
 </BaseLayout>

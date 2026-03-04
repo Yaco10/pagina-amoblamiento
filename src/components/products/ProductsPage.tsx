@@ -1,8 +1,9 @@
 import React, { useMemo, useState } from "react";
 import FiltersSidebar from "./FiltersSidebar.tsx"
-import type { ProductFilters } from "./FiltersSidebar.tsx"
 import ProductGrid from "./ProductsGrid.tsx"
 import { PRODUCTS } from "../../data/product.ts";
+import type { ProductFilters } from "./FiltersSidebar.tsx"
+import type { Product } from "../../data/product.ts";
 
 type AnyProduct = any;
 
@@ -27,15 +28,14 @@ function normalizeCategory(slug?: string) {
 }
 
 type Props = {
-  category?: string; // viene desde Astro: "bano", "cocina", "all"
+  category?: string; 
 };
 
 export default function ProductsPage({ category }: Props) {
   const categoryName = useMemo(() => normalizeCategory(category), [category]);
 
-  // bounds reales por productos (podés hacerlo sobre todos o sobre la categoría)
   const priceBounds = useMemo(() => {
-    const prices = PRODUCTS.map((p: AnyProduct) => p.originalPrice).filter(
+    const prices = PRODUCTS.map((p: Product) => p.originalPrice).filter(
       (n: any) => typeof n === "number"
     ) as number[];
     const min = prices.length ? Math.min(...prices) : 0;
@@ -44,11 +44,11 @@ export default function ProductsPage({ category }: Props) {
   }, []);
 
   const availableColors = useMemo(
-    () => uniqueStrings(PRODUCTS.map((p: AnyProduct) => p.color)),
+    () => uniqueStrings((PRODUCTS.flatMap((p: AnyProduct) => Array.isArray(p.color) ? p.color : []))),
     []
   );
   const availableSizes = useMemo(
-    () => uniqueStrings(PRODUCTS.map((p: AnyProduct) => p.size)),
+    () => uniqueStrings(PRODUCTS.flatMap((p: AnyProduct) => Array.isArray(p.size) ? p.size : [])),
     []
   );
 
@@ -62,12 +62,10 @@ export default function ProductsPage({ category }: Props) {
   const filtered = useMemo(() => {
     const q = filters.q.trim().toLowerCase();
 
-    return PRODUCTS.filter((p: AnyProduct) => {
-      // ✅ categoria (desde Astro)
-      console.log(categoryName)
-      const okCategory = categoryName === "all" ? true : p.category.includes(categoryName);;
+    return PRODUCTS.filter((p: Product) => {
+      
+      const okCategory = categoryName === "all" ? true : p.category.includes(categoryName)
 
-      // texto
       const haystack = [
         p.title,
         p.shortDescription,
@@ -79,12 +77,10 @@ export default function ProductsPage({ category }: Props) {
         .toLowerCase();
 
       const okQ = q ? haystack.includes(q) : true;
+      
+      const okColor = filters.colors.length ? p.color.some(color => filters.colors.includes(color)) : true;
+      const okSize = filters.sizes.length ? p.size.some(size => filters.sizes.includes(size)) : true;
 
-      // color / size
-      const okColor = filters.colors.length ? filters.colors.includes(p.color) : true;
-      const okSize = filters.sizes.length ? filters.sizes.includes(p.size) : true;
-
-      // precio
       const price = p.originalPrice ?? 0;
       const okPrice = price >= filters.price.min && price <= filters.price.max;
 
