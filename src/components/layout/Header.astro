@@ -1,5 +1,5 @@
 ---
-import Container from "../ui/Container.astro";
+import Container from '../ui/Container.astro';
 ---
 
 <header class="sticky top-0 z-50 border-b border-brand-wood/10 bg-brand-base/80 backdrop-blur">
@@ -7,11 +7,7 @@ import Container from "../ui/Container.astro";
     <div class="flex h-16 items-center justify-between w-full">
       <!-- Logo -->
       <a href="/">
-        <img
-          class="h-20 w-20 rounded-2xl object-contain"
-          src="/images/LogoPrincpial.png"
-          alt=""
-        />
+        <img class="h-20 w-20 rounded-2xl object-contain" src="/images/LogoPrincpial.png" alt="" />
       </a>
 
       <!-- Nav (desktop) -->
@@ -25,43 +21,48 @@ import Container from "../ui/Container.astro";
 
           <!-- Products -->
           <li class="group cursor-pointer">
-            <span class="rounded-full px-2 py-1 transition hover:text-brand-wood">
-              Products
-            </span>
+            <span class="rounded-full px-2 py-1 transition hover:text-brand-wood"> Products </span>
 
-            <!-- WRAPPER puente: ocupa desde arriba, y el contenido baja con padding -->
             <div
-              class="
-                fixed inset-x-0 top-0 z-50
-                bg-none
+              class="fixed inset-x-0 top-0 z-50
                 pt-16
                 opacity-0 invisible pointer-events-none
                 group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto
-                transition duration-250
-              "
+                transition duration-250"
             >
-              <!-- Panel -->
               <div class="bg-brand-base shadow-lg border-t border-brand-wood/10">
                 <Container>
                   <div class="p-6">
                     <ul class="flex gap-6 items-center justify-center">
                       <li>
-                        <a href="/products/Cocina" class="rounded-full px-2 py-1 transition hover:text-brand-wood">
+                        <a
+                          href="/products/Cocina"
+                          class="rounded-full px-2 py-1 transition hover:text-brand-wood"
+                        >
                           Cocina
                         </a>
                       </li>
                       <li>
-                        <a href="/products/Living" class="rounded-full px-2 py-1 transition hover:text-brand-wood">
+                        <a
+                          href="/products/Living"
+                          class="rounded-full px-2 py-1 transition hover:text-brand-wood"
+                        >
                           Living
                         </a>
                       </li>
                       <li>
-                        <a href="/products/Dormitorio" class="rounded-full px-2 py-1 transition hover:text-brand-wood">
+                        <a
+                          href="/products/Dormitorio"
+                          class="rounded-full px-2 py-1 transition hover:text-brand-wood"
+                        >
                           Dormitorio
                         </a>
                       </li>
                       <li>
-                        <a href="/products/Oficina" class="rounded-full px-2 py-1 transition hover:text-brand-wood">
+                        <a
+                          href="/products/Oficina"
+                          class="rounded-full px-2 py-1 transition hover:text-brand-wood"
+                        >
                           Oficina
                         </a>
                       </li>
@@ -79,6 +80,134 @@ import Container from "../ui/Container.astro";
           </li>
         </ul>
       </nav>
+
+      <!-- Botón mobile -->
+      <div class="block md:hidden">
+        <button id="button-header" class="cursor-pointer font-bold text-xl">☰</button>
+      </div>
     </div>
   </Container>
 </header>
+
+<div
+  id="nav-mobile"
+  class="z-60 fixed inset-0 h-screen w-screen bg-white
+        translate-x-full transform transition-transform duration-500 ease-in-out"
+>
+  <div class="flex flex-row items-center justify-between p-8 bg-brand-base/80 h-16">
+    <button id="button-close" class="font-semibold text-3xl text-brand-wood/90"> &times; </button>
+    <h1 class="text-lg font-bold">Menu</h1>
+  </div>
+
+  <nav class="m-6">
+    <ul class="flex flex-col gap-6 items-center justify-center">
+      <li class="border-b p-2 px-8">
+        <a href="#nosotros" class="font-semibold px-2 py-1">Nosotros</a>
+      </li>
+
+      <li class="border-b p-2 px-8">
+        <button id="button-open-products" class="font-semibold px-2 py-1"> Productos </button>
+      </li>
+
+      <li class="border-b p-2 px-8">
+        <a href="#contacto" class="font-semibold px-2 py-1">Contacto</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div
+  id="subnav-products-mobile"
+  class="z-70 fixed inset-0 h-screen w-screen bg-white
+        translate-x-full transform transition-transform duration-500 ease-in-out"
+>
+  <div class="flex flex-row items-center justify-between p-8 bg-brand-base/80 h-16">
+    <button id="button-close-products" class="font-semibold text-3xl text-brand-wood/90">
+      &times;
+    </button>
+
+    <div class="flex flex-row gap-4 items-center justify-center text-center">
+      <h1 class="text-lg font-bold">Productos</h1>
+      <button id="button-back-products" class="font-bold text-xl">&gt;</button>
+    </div>
+  </div>
+
+  <nav class="m-6">
+    <ul class="flex flex-col gap-6 items-center justify-center">
+      <li class="border-b p-2 px-8">
+        <a href="/products/Cocina" onclick="closeMenuProducts()" class="font-semibold px-2 py-1">
+          Cocina
+        </a>
+      </li>
+
+      <li class="border-b p-2 px-8">
+        <a href="/products/Living" onclick="closeMenuProducts()" class="font-semibold px-2 py-1">
+          Living
+        </a>
+      </li>
+
+      <li class="border-b p-2 px-8">
+        <a
+          href="/products/Dormitorio"
+          onclick="closeMenuProducts()"
+          class="font-semibold px-2 py-1"
+        >
+          Dormitorio
+        </a>
+      </li>
+
+      <li class="border-b p-2 px-8">
+        <a href="/products/Oficina" onclick="closeMenuProducts()" class="font-semibold px-2 py-1">
+          Oficina
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<script>
+  const btnOpen = document.getElementById('button-header');
+  const btnClose = document.getElementById('button-close');
+  const btnCloseProducts = document.getElementById('button-close-products');
+  const btnOpenProducts = document.getElementById('button-open-products');
+  const btnBackProducts = document.getElementById('button-back-products');
+
+  const nav = document.getElementById('nav-mobile');
+  const navProduct = document.getElementById('subnav-products-mobile');
+
+  btnOpen?.addEventListener('click', () => {
+    nav?.classList.remove('translate-x-full');
+    nav?.classList.add('translate-x-0');
+  });
+
+  btnClose?.addEventListener('click', () => {
+    nav?.classList.remove('translate-x-0');
+    nav?.classList.add('translate-x-full');
+  });
+
+  btnOpenProducts?.addEventListener('click', () => {
+    navProduct?.classList.remove('translate-x-full');
+    navProduct?.classList.add('translate-x-0');
+  });
+
+  btnBackProducts?.addEventListener('click', () => {
+    navProduct?.classList.add('translate-x-full');
+    navProduct?.classList.remove('translate-x-0');
+  });
+
+  btnCloseProducts?.addEventListener('click', () => {
+    nav?.classList.add('translate-x-full');
+    navProduct?.classList.add('translate-x-full');
+
+    nav?.classList.remove('translate-x-0');
+    navProduct?.classList.remove('translate-x-0');
+  });
+
+  function closeMenuProducts() {
+    nav?.classList.add('translate-x-full');
+    navProduct?.classList.add('translate-x-full');
+
+    nav?.classList.remove('translate-x-0');
+    navProduct?.classList.remove('translate-x-0');
+  }
+</script>

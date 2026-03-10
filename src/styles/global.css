@@ -1,8 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --font-heading: "Safira March", serif;
-  --font-body: "Tenor Sans", system-ui, sans-serif;
+  --font-heading: 'Safira March', serif;
+  --font-body: 'Tenor Sans', system-ui, sans-serif;
 }
 
 /* =========================
@@ -10,24 +10,24 @@
 ========================= */
 @theme {
   /* Colores */
-  --color-brand-base: #F7F1E1;
-  --color-brand-surface: #E3D8C1;
-  --color-brand-accent: #B4833D;
-  --color-brand-wood: #66371B;
-  --color-brand-coyote: #81754B;
-  --color-brand-earth: #3F3F2C;
+  --color-brand-base: #f7f1e1;
+  --color-brand-surface: #e3d8c1;
+  --color-brand-accent: #b4833d;
+  --color-brand-wood: #66371b;
+  --color-brand-coyote: #81754b;
+  --color-brand-earth: #3f3f2c;
 
   /* Fuentes */
-  --font-heading: "Safira March", serif;
-  --font-body:"DM Sans", sans-serif;
+  --font-heading: 'Safira March', serif;
+  --font-body: 'DM Sans', sans-serif;
 }
 
 /* =========================
    FONT FACE
 ========================= */
 @font-face {
-  font-family: "Safira March";
-  src: url("/fonts/Safira-March-Regular.woff2") format("woff2");
+  font-family: 'Safira March';
+  src: url('/fonts/Safira-March-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -43,13 +43,15 @@
 
   body {
     @apply bg-[var(--color-brand-base)] text-[var(--color-brand-earth)];
-    font-family: var(--font-body, "DM Sans", sans-serif); /* <-- FIX */
+    font-family: var(--font-body, 'DM Sans', sans-serif); /* <-- FIX */
     line-height: 1.6;
     overflow-x: hidden;
   }
 
   /* HEADINGS */
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-family: var(--font-heading);
     font-weight: 400;
     letter-spacing: 0.04em;
@@ -58,7 +60,7 @@
   h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1.1;
-    letter-spacing: 0.10em;
+    letter-spacing: 0.1em;
   }
 
   h2 {
@@ -77,9 +79,7 @@
     font-family: var(--font-body);
     font-weight: 400;
     font-style: normal;
-  
   }
-
 
   small {
     font-size: 0.875rem;
@@ -116,7 +116,7 @@
   }
 
   .text-hero {
-    @apply font-semibold leading-[1.1] text-white text-2xl sm:text-6xl
+    @apply font-semibold leading-[1.1] text-white text-2xl sm:text-6xl;
   }
 }
 
@@ -141,7 +141,7 @@ select:-webkit-autofill {
 }
 
 .btn-accent::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   background-color: color-mix(in srgb, var(--color-brand-accent) 20%, transparent);
@@ -159,4 +159,3 @@ select:-webkit-autofill {
 .btn-accent.is-forced::before {
   transform: translateX(0);
 }
-

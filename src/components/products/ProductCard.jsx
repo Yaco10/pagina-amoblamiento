@@ -3,14 +3,14 @@ import { calculateFinalPrice, calculateInstallments, formatPrice } from "../../d
 export default function ProductCard({ product }) {
   if (!product) return null;
 
-  const cover = product.images?.[0];
-  const cover2 = product.images?.[1];
-  const inst = calculateInstallments(product.originalPrice, product.installments);
+  const cover = product.variants?.[0].images?.[0]
+  const cover2 = product.variants?.[0].images?.[1]
+  const inst = calculateInstallments(product.priceBase, product.installments);
 
   const hasDiscount = Boolean(product.discountPercentage);
   const finalPrice = hasDiscount
-    ? calculateFinalPrice(product.originalPrice, product.discountPercentage)
-    : product.originalPrice;
+    ? calculateFinalPrice(product.priceBase, product.discountPercentage)
+    : product.priceBase;
 
   return (
     <article className="w-full max-w-md overflow-hidden ">
@@ -46,12 +46,13 @@ export default function ProductCard({ product }) {
 
         <p className="text-lg font-bold">
           {formatPrice(finalPrice)}
+          
         </p>
 
         {hasDiscount && (
           <div className="mt-1 flex items-center gap-2">
             <p className="text-sm text-black/60 line-through">
-              {formatPrice(product.originalPrice)}
+              {formatPrice(product.priceBase)}
             </p>
             <span className="rounded-full bg-emerald-500 px-2 py-0.5 text-xs font-semibold text-white">
               -{product.discountPercentage}% OFF
