@@ -1,30 +1,27 @@
 ---
-import Container from "../../components/ui/Container.astro";
-import ProductsPage from "../../components/products/ProductsPage";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import Container from '../../components/ui/Container.astro';
+import ProductsPage from '../../components/products/ProductsPage';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const { category } = Astro.params;
-const categoryLabel = (category ?? "all").toLowerCase();
+const categoryLabel = (category ?? 'all').toLowerCase();
 ---
 
 <BaseLayout>
-<main class="">
-  <header class="p-4 px-8  bg-[color:var(--color-brand-surface)] w-full">
+  <main class="">
+    <header class="p-4 px-8 bg-[color:var(--color-brand-surface)] w-full">
       <p class="text-sm text-black/60">
         Productos /
         <span class="ml-1 font-semibold text-black">
-          {categoryLabel === "all" ? "Todas" : categoryLabel}
+          {categoryLabel === 'all' ? 'Todas' : categoryLabel}
         </span>
       </p>
       <h1 class="mt-0 text-3xl font-semibold tracking-tight">
-        {categoryLabel === "all"
-          ? "Todos los productos"
-          : `Muebles de ${category}`}
+        {categoryLabel === 'all' ? 'Todos los productos' : `Muebles de ${category}`}
       </h1>
     </header>
-  <Container>
-    <ProductsPage client:load category={category} />
-  </Container>
-</main>
+    <Container>
+      <ProductsPage client:load category={category} />
+    </Container>
+  </main>
 </BaseLayout>
-

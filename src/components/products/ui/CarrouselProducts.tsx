@@ -1,31 +1,25 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import type { Product } from '../../../data/product';
 
 type ProductCarouselProps = {
   images: string[];
-  selectedColor?: string | null;
+  product?: Product | null;
 };
 
-function imagesByColor(images: string[], color: string) {
-  const getNum = (url: string) => {
-    const match = url.match(/-(\d+)(?:\.\w+)?$/);
-    return match ? Number(match[1]) : 0;
-  };
-
-  const filtered = images
-    .filter((url) => url.toLowerCase().includes(`-${color.toLowerCase()}-`))
-    .sort((a, b) => getNum(a) - getNum(b));
-
-  return filtered.length > 0 ? filtered : images.sort((a, b) => getNum(a) - getNum(b));
-}
-
-export default function ProductCarousel19x9({ images, selectedColor }: ProductCarouselProps) {
+export default function ProductCarousel19x9({ images, product }: ProductCarouselProps) {
   const filteredImages = useMemo(() => {
-    if (!selectedColor) return images;
-    return imagesByColor(images, selectedColor);
-  }, [images, selectedColor]);
+    console.log('adsada', images.length);
+    if (images.length > 0) return images;
+    if (product?.variants) {
+      for (let v of product?.variants) {
+        if (v.images.length > 0) return v.images;
+      }
+    }
+    return product?.variants[0].images ?? [];
+  }, [images, product]);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: "start" });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: 'start' });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const onSelect = useCallback(() => {
@@ -36,11 +30,11 @@ export default function ProductCarousel19x9({ images, selectedColor }: ProductCa
   useEffect(() => {
     if (!emblaApi) return;
     onSelect();
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect);
     return () => {
-      emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
+      emblaApi.off('select', onSelect);
+      emblaApi.off('reInit', onSelect);
     };
   }, [emblaApi, onSelect]);
 
@@ -48,7 +42,7 @@ export default function ProductCarousel19x9({ images, selectedColor }: ProductCa
     if (!emblaApi) return;
     emblaApi.reInit();
     emblaApi.scrollTo(0);
-  }, [emblaApi, filteredImages.length, selectedColor]);
+  }, [emblaApi, filteredImages.length, product]);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -59,7 +53,10 @@ export default function ProductCarousel19x9({ images, selectedColor }: ProductCa
   return (
     <div className="w-full">
       <div className="relative">
-        <div ref={emblaRef} className="overflow-hidden rounded-2xl bg-[color:var(--color-brand-surface)]">
+        <div
+          ref={emblaRef}
+          className="overflow-hidden rounded-2xl bg-[color:var(--color-brand-surface)]"
+        >
           <div className="flex">
             {filteredImages.map((src, i) => (
               <div key={src + i} className="flex-[0_0_100%]">
@@ -71,7 +68,7 @@ export default function ProductCarousel19x9({ images, selectedColor }: ProductCa
                     alt={`Producto ${i + 1}`}
                     className="absolute inset-0 h-full w-full object-cover"
                     draggable={false}
-                    loading={i === 0 ? "eager" : "lazy"}
+                    loading={i === 0 ? 'eager' : 'lazy'}
                   />
                 </div>
               </div>
@@ -111,9 +108,9 @@ export default function ProductCarousel19x9({ images, selectedColor }: ProductCa
                 key={src + i}
                 onClick={() => scrollTo(i)}
                 className={[
-                  "shrink-0 overflow-hidden rounded-xl border transition",
-                  active ? "border-black" : "border-gray-200 hover:border-gray-400",
-                ].join(" ")}
+                  'shrink-0 overflow-hidden rounded-xl border transition',
+                  active ? 'border-black' : 'border-gray-200 hover:border-gray-400',
+                ].join(' ')}
               >
                 <div className="relative aspect-[12/16] w-28 overflow-hidden bg-[color:var(--color-brand-surface)] cursor-pointer">
                   <img

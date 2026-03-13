@@ -1,0 +1,29 @@
+---
+import FurnitureSvg from '../svg/FurnitureSvg.astro';
+
+type Size = 'sm' | 'md' | 'lg';
+type Props = { size?: Size };
+
+const { size = 'md' } = Astro.props as Props;
+
+const circleSizes = {
+  sm: 'h-16 w-16',
+  md: 'h-24 w-24',
+  lg: 'h-28 w-28',
+} as const;
+
+const iconSizes = {
+  sm: 'h-8 w-8',
+  md: 'h-12 w-12',
+  lg: 'h-14 w-14',
+} as const;
+---
+
+<div
+  class={`flex items-center justify-center rounded-full
+          border-3 border-[color:var(--color-brand-wood)]
+
+          ${circleSizes[size]}`}
+>
+  <FurnitureSvg class={`${iconSizes[size]} text-[var(--color-brand-wood)]`} aria-hidden="true" />
+</div>

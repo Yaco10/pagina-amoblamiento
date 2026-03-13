@@ -1,20 +1,20 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/sections/Hero.astro";
-import Features from "../components/sections/Features.astro";
-import AboutCarrousel from "../components/sections/AboutCarousel.astro";
-import FeaturedProduct from "../components/sections/FeaturedProduct.astro";
-import Nosotros from "../components/sections/Nosotros.astro";
-import Stats from "../components/sections/Stats.astro";
-import Contacto from "../components/sections/Contacto.astro";
+import AboutSection from '../components/sections/about/AboutSection.astro';
+import CarouselSection from '../components/sections/carousel/CarouselSection.astro';
+import ContactSection from '../components/sections/contact/ContactSection.astro';
+import FeaturedSection from '../components/sections/featured/FeaturedSection.astro';
+import FeaturesSection from '../components/sections/features/FeaturesSection.astro';
+import HeroSection from '../components/sections/hero/HeroSection.astro';
+import StatsSection from '../components/sections/stats/StatsSection.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout>
-  <Hero />
-  <Features />
-  <AboutCarrousel/>
-  <FeaturedProduct/>
-  <Nosotros/>
-  <Stats/>
-  <Contacto/>
+  <HeroSection />
+  <FeaturesSection />
+  <CarouselSection />
+  <FeaturedSection />
+  <AboutSection />
+  <StatsSection />
+  <ContactSection />
 </BaseLayout>

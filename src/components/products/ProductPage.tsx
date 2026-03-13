@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { PRODUCTS, calculateFinalPrice } from '../../data/product';
 import type { ColorMelamina, MobelSize, Product, ProductVariant } from '../../data/product';
 import { calculateInstallments, formatPrice } from '../../data/princingsUtils';
-import ProductCarousel16x9 from '../ui/Carrousel/CarrouselProducts';
-import ProductAccordion from '../ui/ProductAccordion';
+import ProductCarousel16x9 from './ui/CarrouselProducts';
+import ProductAccordion from './ui/ProductAccordion';
 
 export default function ProductPage({ product }: { product: string }) {
   const productObject = useMemo(
@@ -26,12 +26,12 @@ export default function ProductPage({ product }: { product: string }) {
     [defaultVariant, selectedVariantId, productObject.variants],
   );
 
-  const availableColors = useMemo(
-    () => Array.from(new Set(productObject?.variants.map((v) => v.color))),
+  const availableColors = useMemo<ColorMelamina[]>(
+    () => Array.from(new Set(productObject?.variants.map((v) => v.color) ?? [])),
     [productObject?.variants],
   );
 
-  const availableSizes = useMemo(
+  const availableSizes = useMemo<MobelSize[]>(
     () => Array.from(new Set(productObject?.variants.map((v) => v.sizeCategory))),
     [productObject?.variants],
   );
@@ -79,13 +79,16 @@ export default function ProductPage({ product }: { product: string }) {
 
   return (
     <>
-      <div className="flex flex-row p-4 gap-8 items-start">
-        <div className="flex flex-col basis-[40%] overflow-hidden">
-          <ProductCarousel16x9 images={selectedVariant.images} selectedColor={selectedColor} />
+      <h1 className="text-base font-bold text-[color:var(--color-brand-wood)]/80 pt-2 pl-4 lg:hidden">
+        {productObject.title}
+      </h1>
+      <div className="flex flex-col p-2 gap-8 items-start lg:flex-row">
+        <div className="flex flex-col overflow-hidden w-full lg:basis-[40%] ">
+          <ProductCarousel16x9 images={selectedVariant.images} product={productObject} />
         </div>
 
-        <div className="sticky top-[100px] flex flex-col basis-[60%] ">
-          <h1 className="text-sm font-bold text-[color:var(--color-brand-wood)]/80">
+        <div className="sticky top-[100px] flex flex-col w-full lg:basis-[60%]">
+          <h1 className="hidden text-sm font-bold text-[color:var(--color-brand-wood)]/80 lg:block">
             {productObject.title}
           </h1>
 
@@ -175,7 +178,7 @@ export default function ProductPage({ product }: { product: string }) {
   }
   ${!isSizeEnabled(size) ? 'opacity-50 cursor-not-allowed hover:ring-0' : ''}
 `}
-                aria-pressed={size === selectedColor}
+                aria-pressed={size === selectedSize}
               >
                 {size}
               </button>

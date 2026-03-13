@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import UnderlinedText from '../../ui/UnderlinedText.astro';
+
+type Props = {
+  src: ImageMetadata;
+};
+
+const { src } = Astro.props as Props;
+---
+
+<div class="max-w-lg flex flex-row bg-[color:var(--color-brand-surface)]/30">
+  <div class="flex flex-col justify-center items-center w-1/2 m-10">
+    <UnderlinedText text="Titulo Producto" size="lg" />
+
+    <a
+      href="#productos"
+      class="hidden sm:inline-flex rounded-sm border border-brand-wood/15 bg-brand-surface/60 mt-5 px-5 py-2 text-sm font-medium text-brand-wood shadow-sm transition hover:bg-brand-surface"
+    >
+      Ver producto
+    </a>
+  </div>
+  <Image src={src} alt="Producto" class="w-1/2 object-cover" />
+</div>

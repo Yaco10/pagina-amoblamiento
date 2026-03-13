@@ -27,8 +27,8 @@ export type InstallmentPlan = {
 export type ProductVariant = {
   id: string;
   sku: string;
-  color: string;
-  sizeCategory: string;
+  color: ColorMelamina;
+  sizeCategory: MobelSize;
   realSize: RealSize;
   stock: number;
   price: number; // precio de esa variante
@@ -119,10 +119,7 @@ export const PRODUCTS: Product[] = [
         realSize: { ancho: 2, alto: 4, profundidad: 3 },
         stock: 4,
         price: 149900,
-        images: [
-          '/products/bajo-mesada-linea/white-mediano-1.jpg',
-          '/products/bajo-mesada-linea/white-mediano-2.jpg',
-        ],
+        images: [],
       },
       {
         id: 'v-001-4',
@@ -132,10 +129,7 @@ export const PRODUCTS: Product[] = [
         realSize: { ancho: 12, alto: 32, profundidad: 10 },
         stock: 1,
         price: 169900,
-        images: [
-          '/products/bajo-mesada-linea/white-grande-1.jpg',
-          '/products/bajo-mesada-linea/white-grande-2.jpg',
-        ],
+        images: [],
       },
     ],
   },
@@ -177,6 +171,7 @@ export const PRODUCTS: Product[] = [
         sku: 'MTV-NORD-MED-WHT',
         color: 'White',
         sizeCategory: 'Mediano',
+        realSize: { ancho: 1, alto: 2, profundidad: 3 },
         stock: 3,
         price: 114900,
         images: [

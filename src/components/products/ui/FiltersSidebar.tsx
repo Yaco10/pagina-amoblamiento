@@ -1,5 +1,5 @@
-import React from "react";
-import PriceRange from "../ui/PriceRange";
+import React from 'react';
+import PriceRange from './PriceRange';
 
 export type ProductFilters = {
   q: string;
@@ -56,9 +56,7 @@ export default function FiltersSidebar({
               max={priceBounds.max}
               step={1000}
               value={[value.price.min, value.price.max]}
-              onChange={([min, max]) =>
-                onChange({ ...value, price: { min, max } })
-              }
+              onChange={([min, max]) => onChange({ ...value, price: { min, max } })}
             />
           </section>
 
@@ -70,16 +68,11 @@ export default function FiltersSidebar({
               {availableColors.map((c) => {
                 const checked = value.colors.includes(c);
                 return (
-                  <label
-                    key={c}
-                    className="flex cursor-pointer items-center gap-3 select-none"
-                  >
+                  <label key={c} className="flex cursor-pointer items-center gap-3 select-none">
                     <input
                       type="checkbox"
                       checked={checked}
-                      onChange={() =>
-                        onChange({ ...value, colors: toggle(value.colors, c) })
-                      }
+                      onChange={() => onChange({ ...value, colors: toggle(value.colors, c) })}
                       className="peer sr-only"
                     />
 
@@ -119,9 +112,7 @@ export default function FiltersSidebar({
               })}
 
               {availableColors.length === 0 && (
-                <p className="text-sm text-black/50">
-                  No hay colores cargados.
-                </p>
+                <p className="text-sm text-black/50">No hay colores cargados.</p>
               )}
             </div>
           </section>
@@ -134,16 +125,11 @@ export default function FiltersSidebar({
               {availableSizes.map((s) => {
                 const checked = value.sizes.includes(s);
                 return (
-                  <label
-                    key={s}
-                    className="flex cursor-pointer items-center gap-3 select-none"
-                  >
+                  <label key={s} className="flex cursor-pointer items-center gap-3 select-none">
                     <input
                       type="checkbox"
                       checked={checked}
-                      onChange={() =>
-                        onChange({ ...value, sizes: toggle(value.sizes, s) })
-                      }
+                      onChange={() => onChange({ ...value, sizes: toggle(value.sizes, s) })}
                       className="peer sr-only"
                     />
 
@@ -183,9 +169,7 @@ export default function FiltersSidebar({
               })}
 
               {availableSizes.length === 0 && (
-                <p className="text-sm text-black/50">
-                  No hay tamaños cargados.
-                </p>
+                <p className="text-sm text-black/50">No hay tamaños cargados.</p>
               )}
             </div>
           </section>

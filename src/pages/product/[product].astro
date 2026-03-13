@@ -1,15 +1,13 @@
 ---
-import Container from "../../components/ui/Container.astro";
-import ProductPage from "../../components/products/ProductPage.tsx";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import ProductAccordion from "../../components/ui/ProductAccordion.tsx";
+import Container from '../../components/ui/Container.astro';
+import ProductPage from '../../components/products/ProductPage.tsx';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const { product } = Astro.params;
 
 if (!product) {
-  return new Response("Producto no especificado", { status: 400 });
+  return new Response('Producto no especificado', { status: 400 });
 }
-
 ---
 
 <BaseLayout>

@@ -1,9 +1,10 @@
 ---
-import ItemStats from "../ui/ItemStats.astro"
-import IconCarpintero from "../icons/dockStats/IconCarpintero.astro"
-import IconClientes from "../icons/dockStats/IconClientes.astro"
-import IconMadera from "../icons/dockStats/IconMadera.astro"
-import IconGarantia from "../icons/dockStats/IconGarantia.astro"
+import ItemStats from './ItemStats.astro';
+
+import CarpenterIcon from '../../icons/stats/CarpenterIcon.astro';
+import ClientsIcon from '../../icons/stats/ClientsIcon.astro';
+import WoodIcon from '../../icons/stats/WoodIcon.astro';
+import WarrantyIcon from '../../icons/stats/WarrantyIcon.astro';
 ---
 
 <div class="w-full">
@@ -13,7 +14,7 @@ import IconGarantia from "../icons/dockStats/IconGarantia.astro"
       value="+25"
       unit="años"
       description="Más de 25 años fabricando muebles a medida con terminaciones prolijas y duraderas."
-      icon={IconCarpintero}
+      icon={CarpenterIcon}
     />
 
     <ItemStats
@@ -21,15 +22,15 @@ import IconGarantia from "../icons/dockStats/IconGarantia.astro"
       value="+200"
       unit=""
       description="Más de 200 clientes satisfechos. Atención cercana antes, durante y después de la entrega."
-      icon={IconClientes}
+      icon={ClientsIcon}
     />
 
     <ItemStats
       title="Tipos de material"
       value="Melamina"
       unit=""
-      description="Trabajamos con distintos materiales y colores (melamina y opciones según modelo) para adaptarlo a tu espacio."
-      icon={IconMadera}
+      description="Trabajamos con distintos materiales y colores para adaptarlo a tu espacio."
+      icon={WoodIcon}
     />
 
     <ItemStats
@@ -37,7 +38,7 @@ import IconGarantia from "../icons/dockStats/IconGarantia.astro"
       value="Cambio"
       unit=""
       description="Si el producto llega dañado, lo reemplazamos o resolvemos el problema sin vueltas."
-      icon={IconGarantia}
+      icon={WarrantyIcon}
     />
   </div>
 </div>
