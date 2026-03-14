@@ -1,13 +1,14 @@
 ---
 import FacebookIcon from '../icons/social/FacebookIcon.astro';
 import InstagramIcon from '../icons/social/InstagramIcon.astro';
+import Accordion from '../ui/Accordion';
 import Container from '../ui/Container.astro';
 ---
 
-<footer class="bg-brand-wood/10">
+<footer class="bg-(--color-brand-surface)">
   <Container>
-    <div class="flex flex-row">
-      <div class="grid grid-cols-[1fr_3fr] m-8">
+    <div class="hidden lg:block flex flex-col">
+      <div class="grid grid-cols-[1fr_3fr] ml-8 mr-8 mt-8 mb-4 border-b border-black pb-8">
         <div class="flex flex-col">
           <div class="flex flex-row justify-start items-center my-4">
             <img
@@ -39,16 +40,84 @@ import Container from '../ui/Container.astro';
         </div>
         <div class="grid grid-cols-3 text-center">
           <div>
-            <h2 class="text-sm text-black font-body font-semibold">PRODUCTOS</h2>
+           <nav>
+             <h2 class="text-sm text-black font-body font-semibold">PRODUCTOS</h2>
+             <ul>
+              <li class=" text-(--color-brand-wood)/60">
+                <a href="">Cocina</a>
+              </li >
+              <li class=" text-(--color-brand-wood)/60">
+                <a href="">Living</a>
+              </li>
+              <li class=" text-(--color-brand-wood)/60">
+                <a href="">Dormitorio</a>
+              </li>
+              <li class=" text-(--color-brand-wood)/60">
+                <a href="">Oficina</a>
+              </li>
+             </ul>
           </div>
           <div>
             <h2 class="text-sm text-black font-body font-semibold">COMPANIA</h2>
+            <ul>
+              <li class=" text-(--color-brand-wood)/60">
+                <a href="">Nosotros</a>
+              </li >
+              <li class=" text-(--color-brand-wood)/60">
+                <a href="">Contacto</a>
+              </li>
+              <li class=" text-(--color-brand-wood)/60">
+                <a href="">Preguntas Frecuentes</a>
+              </li>
+             </ul>
           </div>
           <div>
-            <h2 class="text-sm text-black font-body font-semibold">LEGALES</h2>
+            <h2 class="text-sm text-black font-body font-semibold">ATENCION AL CLIENTE</h2>
+            <ul>
+              <li class=" text-(--color-brand-wood)/60">
+                <a href="">Envios</a>
+              </li >
+              <li class=" text-(--color-brand-wood)/60">
+                <a href="">Cambios y Devoluciones</a>
+              </li>
+              <li class=" text-(--color-brand-wood)/60">
+                <a href="">Garantia</a>
+              </li>
+              <li class=" text-(--color-brand-wood)/60">
+                <a href="">Metodos Pago</a>
+              </li>
+             </ul>
           </div>
+           </nav>
         </div>
       </div>
+      <div class="ml-8 mr-8 mb-4 flex flex-row justify-between text-(--color-brand-wood)/60">
+        <p>© 2026 Savia Mobel
+Todos los derechos reservados</p>
+          <nav>
+            <ul class="flex flex-row gap-2 text-sm">
+              <li class=" text-(--color-brand-wood)/60">
+                <a href="">Politica de Privacidad</a>
+              </li>
+              <li class=" text-(--color-brand-wood)/60">
+                <a href="">Terminos de Servicio</a>
+              </li>
+            </ul>
+          </nav>
+      </div>
     </div>
-  </Container>
+    </Container>
+    <div class="flex flex-col bg-(--color-brand-surface) border-t border-(--color-brand-accent)/50 w-full lg:hidden">
+      <Container>
+        <Accordion client:load title="titulo">
+          <p>hola</p>
+        </Accordion>
+        <Accordion client:load title="titulo">
+          <p>hola</p>
+        </Accordion>
+        <Accordion client:load title="titulo">
+          <p>hola</p>
+        </Accordion>
+      </Container>
+    </div>
 </footer>

@@ -21,11 +21,11 @@ import Footer from '../components/layout/Footer.astro';
     <slot name="head" />
   </head>
 
-  <body class="bg-brand-base text-brand-wood antialiased">
+  <body class="bg-brand-base text-brand-wood antialiased min-h-screen flex flex-col">
     <Header />
-    <main>
+    <main class="flex-1">
       <slot />
     </main>
+    <Footer />
   </body>
-  <Footer />
 </html>

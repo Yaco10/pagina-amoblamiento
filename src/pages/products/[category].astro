@@ -8,12 +8,12 @@ const categoryLabel = (category ?? 'all').toLowerCase();
 ---
 
 <BaseLayout>
-  <main class="">
+  <main >
     <header class="p-4 px-8 bg-[color:var(--color-brand-surface)] w-full">
       <p class="text-sm text-black/60">
         Productos /
         <span class="ml-1 font-semibold text-black">
-          {categoryLabel === 'all' ? 'Todas' : categoryLabel}
+          {categoryLabel === 'all' ? 'Todas' : category}
         </span>
       </p>
       <h1 class="mt-0 text-3xl font-semibold tracking-tight">
