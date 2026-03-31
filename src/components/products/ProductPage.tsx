@@ -11,8 +11,6 @@ export default function ProductPage({ product }: { product: string }) {
     [product],
   );
 
-  console.log('elproductolke', productObject?.description);
-
   if (!productObject) return <p>Cargando...</p>;
 
   const defaultVariant =
@@ -102,7 +100,7 @@ export default function ProductPage({ product }: { product: string }) {
             ) : null}
           </div>
 
-          <div className="text-emerald-600 border-b pb-2">
+          <div className="border-b border-[color:var(--color-brand-wood)]/10 pb-2 text-[color:var(--color-brand-accent)]">
             {productObject.installments?.enabled ? (
               <p className="text-lg font-semibold">
                 {productObject.installments.count} cuotas{' '}
@@ -113,7 +111,7 @@ export default function ProductPage({ product }: { product: string }) {
           </div>
 
           <div className="pt-3 pb-4">
-            <div className="text-emerald-600 flex flex-row gap-2 items-center">
+            <div className="flex flex-row gap-2 items-center text-[color:var(--color-brand-accent)]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -128,17 +126,19 @@ export default function ProductPage({ product }: { product: string }) {
                 Coordinamos tu envío por <span className="font-bold">WhatsApp</span>
               </p>
             </div>
-            <p className="text-sm text-zinc-600">Envíos a todo el país</p>
+            <p className="text-sm text-[color:var(--color-brand-coyote)]/88">Envíos a todo el país</p>
           </div>
 
-          <div className="flex flex-col gap-1 pb-4 text-sm text-zinc-600">
+          <div className="flex flex-col gap-1 pb-4 text-sm text-[color:var(--color-brand-coyote)]/92">
             <p>✓ Elaboración Artesanal</p>
             <p>✓ Diseños Propios</p>
           </div>
 
           <h3 className="text-sm font-semibold pb-2">
             Color:{' '}
-            <span className="font-normal text-zinc-600">{selectedColor ?? 'Elegí un color'}</span>
+            <span className="font-normal text-[color:var(--color-brand-coyote)]/90">
+              {selectedColor ?? 'Elegí un color'}
+            </span>
           </h3>
 
           <div className="pb-4">
@@ -148,13 +148,13 @@ export default function ProductPage({ product }: { product: string }) {
                 type="button"
                 onClick={() => trySelect(color, selectedSize)}
                 className={`
-  cursor-pointer p-3 mr-3 mb-2 rounded-lg
+  btn-ui-chip mr-3 mb-2
   ${
     color === selectedColor
-      ? 'bg-[color:var(--color-brand-wood)] text-white ring-2 ring-[color:var(--color-brand-wood)]'
-      : 'bg-[color:var(--color-brand-surface)] hover:ring-2 hover:ring-black/10'
+      ? 'btn-ui-chip-active'
+      : ''
   }
-  ${!isColorEnabled(color) ? 'opacity-50 cursor-not-allowed hover:ring-0' : ''}
+  ${!isColorEnabled(color) ? 'opacity-50 cursor-not-allowed hover:ring-0 hover:translate-y-0 hover:shadow-none' : ''}
 `}
                 aria-pressed={color === selectedColor}
               >
@@ -170,13 +170,13 @@ export default function ProductPage({ product }: { product: string }) {
                 type="button"
                 onClick={() => trySelect(selectedColor, size)}
                 className={`
-  cursor-pointer p-3 mr-3 mb-2 rounded-lg
+  btn-ui-chip mr-3 mb-2
   ${
     size === selectedSize
-      ? 'bg-[color:var(--color-brand-wood)] text-white ring-2 ring-[color:var(--color-brand-wood)]'
-      : 'bg-[color:var(--color-brand-surface)] hover:ring-2 hover:ring-black/10'
+      ? 'btn-ui-chip-active'
+      : ''
   }
-  ${!isSizeEnabled(size) ? 'opacity-50 cursor-not-allowed hover:ring-0' : ''}
+  ${!isSizeEnabled(size) ? 'opacity-50 cursor-not-allowed hover:ring-0 hover:translate-y-0 hover:shadow-none' : ''}
 `}
                 aria-pressed={size === selectedSize}
               >
@@ -186,7 +186,7 @@ export default function ProductPage({ product }: { product: string }) {
           </div>
 
           <div className="pb-4">
-            <p className="text-sm text-zinc-700">
+            <p className="text-sm text-[color:var(--color-brand-earth)]/82">
               Stock disponible:{' '}
               <span className="text-[color:var(--color-brand-accent)] font-bold">
                 {selectedVariant.stock}
@@ -198,15 +198,7 @@ export default function ProductPage({ product }: { product: string }) {
             href={waLink}
             target="_blank"
             rel="noopener noreferrer"
-            className={`w-full flex items-center justify-center gap-2
-            bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700
-            text-white font-semibold text-[15px] md:text-base
-            py-3 px-6
-            rounded-xl shadow-sm
-            transition-all duration-200
-            hover:-translate-y-0.5 hover:shadow-xl
-            focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2
-            select-none
+            className={`btn-ui-whatsapp w-full
             ${!selectedColor ? 'opacity-60 cursor-not-allowed pointer-events-none' : ''}`}
             aria-label="Consultar por WhatsApp"
             title={!selectedColor ? 'Elegí un color para continuar' : 'Consultar por WhatsApp'}

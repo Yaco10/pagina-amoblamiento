@@ -5,24 +5,22 @@ import { PRODUCTS } from '../../data/product.ts';
 import type { ProductFilters } from './ui/FiltersSidebar.tsx';
 import type { Product, ProductCategory, ProductVariant } from '../../data/product.ts';
 
-type AnyProduct = any;
-
 function uniqueStrings(values: Array<string | undefined | null>) {
   return Array.from(new Set(values.filter(Boolean))) as string[];
 }
 
-const SLUG_TO_CATEGORY: Record<string, string | 'all'> = {
+const SLUG_TO_CATEGORY: Record<string, ProductCategory | 'all'> = {
   all: 'all',
   bano: 'Baño',
   baño: 'Baño',
   cocina: 'Cocina',
   comedor: 'Comedor',
-  Oficina: 'Oficina',
+  oficina: 'Oficina',
   dormitorio: 'Dormitorio',
   living: 'Living',
 };
 
-function normalizeCategory(slug?: string) {
+function normalizeCategory(slug?: string): ProductCategory | 'all' {
   const key = (slug ?? 'all').toLowerCase();
   return SLUG_TO_CATEGORY[key] ?? 'all';
 }
@@ -38,7 +36,6 @@ export default function ProductsPage({ category }: Props) {
     const prices = PRODUCTS.flatMap((p: Product) => p.variants)
       .map((v: ProductVariant) => v.price)
       .filter((n: any) => typeof n === 'number') as number[];
-    console.log('precios', prices);
     const min = prices.length ? Math.min(...prices) : 0;
     const max = prices.length ? Math.max(...prices) : 100000;
     return { min, max };
@@ -92,8 +89,8 @@ export default function ProductsPage({ category }: Props) {
 
   return (
     <>
-      <div className="grid w-full grid-cols-1 gap-6 px-4 py-8 lg:grid-cols-[280px_1fr] min-h-[100vh]">
-        <div className="hidden lg:block">
+      <div className="grid min-h-[100vh] w-full grid-cols-1 gap-6 overflow-x-clip px-4 py-8 lg:grid-cols-[280px_minmax(0,1fr)]">
+        <div className="hidden min-w-0 lg:block">
           <FiltersSidebar
             availableColors={availableColors}
             availableSizes={availableSizes}
@@ -110,37 +107,51 @@ export default function ProductsPage({ category }: Props) {
             }
           />
         </div>
-        <div>
-          <div className="mb-2 text-sm text-black/60">
-            Categoría:{' '}
-            <span className="font-semibold text-black">
+
+        <div className="min-w-0">
+          <div className="mb-2 text-sm text-[color:var(--color-brand-coyote)]/90">
+            Categoria:{' '}
+            <span className="font-semibold text-[color:var(--color-brand-wood)]">
               {categoryName === 'all' ? 'Todas' : categoryName}
             </span>
           </div>
 
-          <div className="mb-4 text-sm text-black/60">
-            Resultados: <span className="font-semibold text-black">{filtered.length}</span>
+          <div className="mb-4 text-sm text-[color:var(--color-brand-coyote)]/90">
+            Resultados:{' '}
+            <span className="font-semibold text-[color:var(--color-brand-wood)]">
+              {filtered.length}
+            </span>
           </div>
+
           <ProductGrid products={filtered} />
         </div>
+
         <button
           onClick={() => {
             setOpenFilters(true);
           }}
-          className="fixed bottom-0 left-0 w-full h-10 text-center items-center justify-center bg-(--color-brand-surface)/80 tracking-[0.25em] font-bold lg:hidden "
+          className="btn-ui-floating-bar fixed right-4 bottom-4 left-4 z-40 justify-center lg:hidden"
         >
           AGREGAR UN FILTRO
         </button>
       </div>
+
       <div
-        className={`z-100 fixed top-0 right-0 h-full w-[80%] bg-(--color-brand-base) ${openFilters ? `translate-x-0` : `translate-x-full`} transform transition-all duration-500 ease-in-out lg:hidden`}
+        className={`z-100 fixed top-0 right-0 h-full w-[80%] max-w-full overflow-x-hidden bg-(--color-brand-base) ${openFilters ? 'translate-x-0' : 'translate-x-full'} transform transition-all duration-500 ease-in-out lg:hidden`}
       >
-        <div className="flex flex-row items-center justify-between w-full p-4 border-b-1 ">
-          <h1 className="text-sm text-center font-semibold">FILTRAR POR COLOR O TAMAÑO</h1>
-          <button onClick={() => setOpenFilters(false)} className="text-xl font-semibold">
+        <div className="flex w-full flex-row items-center justify-between border-b border-[color:var(--color-brand-wood)]/10 p-4">
+          <h1 className="text-sm text-center font-semibold text-[color:var(--color-brand-wood)]">
+            FILTRAR POR COLOR O TAMAÑO
+          </h1>
+          <button
+            onClick={() => setOpenFilters(false)}
+            aria-label="Cerrar filtros"
+            className="inline-flex h-10 w-10 items-center justify-center text-xl font-semibold text-brand-wood/90 transition-colors duration-200 hover:text-brand-wood"
+          >
             &times;
           </button>
         </div>
+
         <FiltersSidebar
           availableColors={availableColors}
           availableSizes={availableSizes}
@@ -157,8 +168,9 @@ export default function ProductsPage({ category }: Props) {
           }
         />
       </div>
+
       <div
-        className={`z-70 fixed inset-0 bg-black/50 transition-opacity duration-300 ${
+        className={`z-70 fixed inset-0 bg-[color:var(--color-brand-earth)]/40 transition-opacity duration-300 ${
           openFilters ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       />

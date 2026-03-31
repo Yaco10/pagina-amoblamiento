@@ -1,71 +1,79 @@
 ---
 import Container from '../ui/Container.astro';
+
+const productLinks = [
+  { href: '/products/Cocina', label: 'Cocina' },
+  { href: '/products/Living', label: 'Living' },
+  { href: '/products/Dormitorio', label: 'Dormitorio' },
+  { href: '/products/Oficina', label: 'Oficina' },
+];
 ---
 
-<header class="sticky top-0 z-50 border-b border-brand-wood/10 bg-brand-base/80 backdrop-blur">
+<header
+  class="sticky top-0 z-50 border-b border-brand-wood/8 bg-brand-base/88 shadow-[0_10px_28px_rgba(63,63,44,0.05)] backdrop-blur-xl"
+>
   <Container>
-    <div class="flex h-16 items-center justify-between w-full">
+    <div class="flex h-16 w-full items-center justify-between">
       <!-- Logo -->
-      <a href="/">
-        <img class="h-20 w-20 rounded-2xl object-contain" src="/images/LogoPrincpial.png" alt="" />
+      <a
+        href="/"
+        class="inline-flex items-center py-1 transition-transform duration-200 hover:scale-[1.02]"
+        aria-label="Ir al inicio"
+      >
+        <img
+          class="block h-11 w-auto max-w-[132px] object-contain object-left md:h-12"
+          src="/images/LogoPrincpial.png"
+          alt="Savia Mobel"
+        />
       </a>
 
       <!-- Nav (desktop) -->
-      <nav class="hidden md:block" aria-label="Navegación principal">
-        <ul class="flex items-center gap-8 text-sm font-bold text-brand-earth">
+      <nav class="hidden md:block" aria-label="Navegacion principal">
+        <ul
+          class="flex items-center gap-6 text-[11px] font-body font-semibold uppercase tracking-[0.22em] text-brand-earth/88"
+        >
           <li>
-            <a href="#nosotros" class="rounded-full px-2 py-1 transition hover:text-brand-wood">
+            <a
+              href="/#nosotros"
+              class="rounded-full px-3 py-2 transition-all duration-200 hover:bg-brand-surface/62 hover:text-brand-wood"
+            >
               Nosotros
             </a>
           </li>
 
           <!-- Products -->
           <li class="group cursor-pointer">
-            <span class="rounded-full px-2 py-1 transition hover:text-brand-wood"> Products </span>
+            <span
+              class="inline-flex rounded-full px-3 py-2 transition-all duration-200 hover:bg-brand-surface/62 hover:text-brand-wood"
+            >
+              Productos
+            </span>
 
             <div
               class="fixed inset-x-0 top-0 z-50
                 pt-16
                 opacity-0 invisible pointer-events-none
                 group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto
-                transition duration-250"
+                transition duration-200"
             >
-              <div class="bg-brand-base shadow-lg border-t border-brand-wood/10">
+              <div
+                class="border-t border-brand-wood/8 bg-brand-base/96 shadow-[0_22px_44px_rgba(63,63,44,0.12)] backdrop-blur-xl"
+              >
                 <Container>
                   <div class="p-6">
-                    <ul class="flex gap-6 items-center justify-center">
-                      <li>
-                        <a
-                          href="/products/Cocina"
-                          class="rounded-full px-2 py-1 transition hover:text-brand-wood"
-                        >
-                          Cocina
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="/products/Living"
-                          class="rounded-full px-2 py-1 transition hover:text-brand-wood"
-                        >
-                          Living
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="/products/Dormitorio"
-                          class="rounded-full px-2 py-1 transition hover:text-brand-wood"
-                        >
-                          Dormitorio
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="/products/Oficina"
-                          class="rounded-full px-2 py-1 transition hover:text-brand-wood"
-                        >
-                          Oficina
-                        </a>
-                      </li>
+                    <ul class="flex items-center justify-center gap-6">
+                      {
+                        productLinks.map((link) => (
+                          <li>
+                            <a
+                              href={link.href}
+                              class="rounded-full px-4 py-2 text-[11px] font-body font-semibold uppercase tracking-[0.18em] text-brand-earth/84 transition-all duration-200 hover:bg-brand-surface/70 hover:text-brand-wood"
+                            >
+                              {link.label}
+                            </a>
+                          </li>
+                        ))
+                      }
                     </ul>
                   </div>
                 </Container>
@@ -74,16 +82,38 @@ import Container from '../ui/Container.astro';
           </li>
 
           <li>
-            <a href="#contacto" class="rounded-full px-2 py-1 transition hover:text-brand-wood">
+            <a
+              href="/#contacto"
+              class="rounded-full px-3 py-2 transition-all duration-200 hover:bg-brand-surface/62 hover:text-brand-wood"
+            >
               Contacto
             </a>
           </li>
         </ul>
       </nav>
 
-      <!-- Botón mobile -->
+      <!-- Boton mobile -->
       <div class="block md:hidden">
-        <button id="button-header" class="cursor-pointer font-bold text-xl">☰</button>
+        <button
+          type="button"
+          id="button-header"
+          aria-label="Abrir menu"
+          class="inline-flex h-11 w-11 appearance-none items-center justify-center rounded-none border-0 bg-transparent p-0 text-[color:var(--color-brand-earth)] shadow-none outline-none ring-0 transition-colors duration-200 hover:text-[color:var(--color-brand-wood)] focus:outline-none focus:ring-0"
+        >
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.9"
+            stroke-linecap="round"
+          >
+            <path d="M4 7h16"></path>
+            <path d="M4 12h16"></path>
+            <path d="M4 17h16"></path>
+          </svg>
+        </button>
       </div>
     </div>
   </Container>
@@ -95,24 +125,58 @@ import Container from '../ui/Container.astro';
         translate-x-full transform transition-transform duration-500 ease-in-out"
 >
   <div
-    class="flex flex-row items-center justify-between p-8 bg-(--color-brand-wood) text-(--color-brand-surface) h-16"
+    class="flex h-16 flex-row items-center justify-between border-b border-white/10 bg-(--color-brand-wood) px-4 text-(--color-brand-surface)"
   >
-    <button id="button-close" class="font-semibold text-3xl"> &times; </button>
-    <h1 class="text-lg font-bold">Menu</h1>
+    <button
+      id="button-close"
+      aria-label="Cerrar menu"
+      class="inline-flex h-11 w-11 items-center justify-center text-white/92 transition-colors duration-200 hover:text-white"
+    >
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        class="h-5 w-5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.9"
+        stroke-linecap="round"
+      >
+        <path d="M6 6l12 12"></path>
+        <path d="M18 6l-12 12"></path>
+      </svg>
+    </button>
+    <h1 class="text-sm font-body font-semibold uppercase tracking-[0.22em] text-white/92 pl-1">
+      Menu
+    </h1>
   </div>
 
   <nav class="m-6">
-    <ul class="flex flex-col gap-6 items-center justify-center">
-      <li class="border-b p-2 px-8">
-        <a href="#nosotros" class="font-semibold px-2 py-1">Nosotros</a>
+    <ul class="flex flex-col items-center justify-center gap-6">
+      <li class="w-full border-b border-brand-wood/10 p-2 px-8 text-center">
+        <a
+          href="/#nosotros"
+          class="inline-flex rounded-full px-4 py-2 font-body text-sm font-semibold uppercase tracking-[0.16em] text-brand-earth/88 transition-all duration-200 hover:bg-brand-surface/68 hover:text-brand-wood"
+        >
+          Nosotros
+        </a>
       </li>
 
-      <li class="border-b p-2 px-8">
-        <button id="button-open-products" class="font-semibold px-2 py-1"> Productos </button>
+      <li class="w-full border-b border-brand-wood/10 p-2 px-8 text-center">
+        <button
+          id="button-open-products"
+          class="inline-flex rounded-full px-4 py-2 font-body text-sm font-semibold uppercase tracking-[0.16em] text-brand-earth/88 transition-all duration-200 hover:bg-brand-surface/68 hover:text-brand-wood"
+        >
+          Productos
+        </button>
       </li>
 
-      <li class="border-b p-2 px-8">
-        <a href="#contacto" class="font-semibold px-2 py-1">Contacto</a>
+      <li class="w-full border-b border-brand-wood/10 p-2 px-8 text-center">
+        <a
+          href="/#contacto"
+          class="inline-flex rounded-full px-4 py-2 font-body text-sm font-semibold uppercase tracking-[0.16em] text-brand-earth/88 transition-all duration-200 hover:bg-brand-surface/68 hover:text-brand-wood"
+        >
+          Contacto
+        </a>
       </li>
     </ul>
   </nav>
@@ -124,45 +188,67 @@ import Container from '../ui/Container.astro';
         translate-x-full transform transition-transform duration-500 ease-in-out"
 >
   <div
-    class="flex flex-row items-center justify-between p-8 bg-(--color-brand-wood) text-(--color-brand-surface) h-16 text-center"
+    class="flex h-16 flex-row items-center justify-between border-b border-white/10 bg-(--color-brand-wood) px-4 text-center text-(--color-brand-surface)"
   >
-    <button id="button-close-products" class="font-semibold text-3xl"> &times; </button>
+    <button
+      id="button-close-products"
+      aria-label="Cerrar submenu de productos"
+      class="inline-flex h-11 w-11 items-center justify-center text-white/92 transition-colors duration-200 hover:text-white"
+    >
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        class="h-5 w-5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.9"
+        stroke-linecap="round"
+      >
+        <path d="M6 6l12 12"></path>
+        <path d="M18 6l-12 12"></path>
+      </svg>
+    </button>
 
-    <div class="flex flex-row gap-4 items-center justify-center text-center">
-      <h1 class="text-lg font-bold">Productos</h1>
-      <button id="button-back-products" class="font-bold text-xl">&gt;</button>
+    <div class="flex flex-row items-center justify-center gap-2 text-center">
+      <h1 class="text-sm font-body font-semibold uppercase tracking-[0.22em] text-white/92">
+        Productos
+      </h1>
+      <button
+        id="button-back-products"
+        aria-label="Volver al menu principal"
+        class="inline-flex h-8 w-8 items-center justify-center text-white/92 transition-colors duration-200 hover:text-white"
+      >
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          class="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.9"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M15 18l-6-6 6-6"></path>
+        </svg>
+      </button>
     </div>
   </div>
 
   <nav class="m-6">
-    <ul class="flex flex-col gap-6 items-center justify-center">
-      <li class="border-b p-2 px-8">
-        <a href="/products/Cocina" onclick="closeMenuProducts()" class="font-semibold px-2 py-1">
-          Cocina
-        </a>
-      </li>
-
-      <li class="border-b p-2 px-8">
-        <a href="/products/Living" onclick="closeMenuProducts()" class="font-semibold px-2 py-1">
-          Living
-        </a>
-      </li>
-
-      <li class="border-b p-2 px-8">
-        <a
-          href="/products/Dormitorio"
-          onclick="closeMenuProducts()"
-          class="font-semibold px-2 py-1"
-        >
-          Dormitorio
-        </a>
-      </li>
-
-      <li class="border-b p-2 px-8">
-        <a href="/products/Oficina" onclick="closeMenuProducts()" class="font-semibold px-2 py-1">
-          Oficina
-        </a>
-      </li>
+    <ul class="flex flex-col items-center justify-center gap-6">
+      {
+        productLinks.map((link) => (
+          <li class="w-full border-b border-brand-wood/10 p-2 px-8 text-center">
+            <a
+              href={link.href}
+              onclick="closeMenuProducts()"
+              class="inline-flex rounded-full px-4 py-2 font-body text-sm font-semibold uppercase tracking-[0.16em] text-brand-earth/88 transition-all duration-200 hover:bg-brand-surface/68 hover:text-brand-wood"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </div>

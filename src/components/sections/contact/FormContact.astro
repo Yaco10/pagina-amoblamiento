@@ -27,7 +27,7 @@ import FormButton from '../../ui/buttons/FormButton.astro';
         type="email"
         name="email"
         placeholder="Email"
-        class="w-full max-w-md py-2 border-b-2 border-[var(--color-brand-accent)]/30 bg-transparent focus:outline-none focus:border-[var(--color-brand-accent)] transition-all duration-300 ease-linear"
+        class="w-full max-w-md border-b-2 border-[var(--color-brand-accent)]/24 bg-transparent px-1 py-3 text-[color:var(--color-brand-earth)] tracking-[0.01em] placeholder:text-[color:var(--color-brand-coyote)]/70 transition-all duration-300 ease-out focus:border-[var(--color-brand-accent)] focus:px-2 focus:outline-none focus:placeholder:text-[color:var(--color-brand-coyote)]/45"
       />
 
       <label for="asunto" class="sr-only">Asunto</label>
@@ -36,7 +36,7 @@ import FormButton from '../../ui/buttons/FormButton.astro';
         type="text"
         name="asunto"
         placeholder="Asunto"
-        class="w-full max-w-md py-2 mt-5 border-b-2 border-[var(--color-brand-accent)]/30 bg-transparent focus:outline-none focus:border-[var(--color-brand-accent)] transition-all duration-300 ease-linear"
+        class="mt-5 w-full max-w-md border-b-2 border-[var(--color-brand-accent)]/24 bg-transparent px-1 py-3 text-[color:var(--color-brand-earth)] tracking-[0.01em] placeholder:text-[color:var(--color-brand-coyote)]/70 transition-all duration-300 ease-out focus:border-[var(--color-brand-accent)] focus:px-2 focus:outline-none focus:placeholder:text-[color:var(--color-brand-coyote)]/45"
       />
 
       <label for="mensaje" class="sr-only">Mensaje</label>
@@ -45,7 +45,7 @@ import FormButton from '../../ui/buttons/FormButton.astro';
         name="mensaje"
         placeholder="Mensaje"
         rows="5"
-        class="w-full max-w-md py-2 mt-5 border-b-2 border-[var(--color-brand-accent)]/30 bg-transparent resize-none focus:outline-none focus:border-[var(--color-brand-accent)] transition-all duration-300 ease-linear"
+        class="mt-5 w-full max-w-md resize-none border-b-2 border-[var(--color-brand-accent)]/24 bg-transparent px-1 py-3 text-[color:var(--color-brand-earth)] tracking-[0.01em] placeholder:text-[color:var(--color-brand-coyote)]/70 transition-all duration-300 ease-out focus:border-[var(--color-brand-accent)] focus:px-2 focus:outline-none focus:placeholder:text-[color:var(--color-brand-coyote)]/45"
       ></textarea>
 
       <div class="mt-8 w-full max-w-md flex justify-center">
@@ -80,7 +80,7 @@ import FormButton from '../../ui/buttons/FormButton.astro';
     });
 
     if (res.ok) {
-      button.textContent = 'Enviado ✔';
+      button.textContent = 'Enviado ✓';
     } else {
       button.textContent = 'Error';
     }

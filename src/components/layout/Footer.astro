@@ -3,120 +3,145 @@ import FacebookIcon from '../icons/social/FacebookIcon.astro';
 import InstagramIcon from '../icons/social/InstagramIcon.astro';
 import Accordion from '../ui/Accordion';
 import Container from '../ui/Container.astro';
+
+const productLinks = [
+  { href: '/products/Cocina', label: 'Cocina' },
+  { href: '/products/Living', label: 'Living' },
+  { href: '/products/Dormitorio', label: 'Dormitorio' },
+  { href: '/products/Oficina', label: 'Oficina' },
+];
+
+const companyLinks = [
+  { href: '/#nosotros', label: 'Nosotros' },
+  { href: '/#contacto', label: 'Contacto' },
+  { href: '/preguntas-frecuentes', label: 'Preguntas Frecuentes' },
+];
+
+const supportLinks = [
+  { href: '/envios', label: 'Envios' },
+  { href: '/cambios-y-devoluciones', label: 'Cambios y Devoluciones' },
+  { href: '/preguntas-frecuentes#garantias', label: 'Garantia' },
+  { href: '/metodos-de-pago', label: 'Metodos Pago' },
+];
 ---
 
-<footer class="bg-(--color-brand-surface)">
+<footer class="bg-[color:var(--color-brand-surface)]/95">
   <Container>
-    <div class="hidden lg:block flex flex-col">
-      <div class="grid grid-cols-[1fr_3fr] ml-8 mr-8 mt-8 mb-4 border-b border-black pb-8">
+    <div class="hidden lg:block flex flex-col pt-3">
+      <div class="grid grid-cols-[1fr_3fr] ml-8 mr-8 mt-10 mb-5 border-b border-[color:var(--color-brand-wood)]/18 pb-10">
         <div class="flex flex-col">
           <div class="flex flex-row justify-start items-center my-4">
             <img
-              src="/public/images/LogoPrincpial.png"
+              src="/images/LogoPrincpial.png"
               alt=""
-              class="absolute left-10 max-w-16 max-h-16 object-cover"
+              class="absolute left-10 max-h-16 w-auto object-contain"
             />
             <h1 class="absolute left-20.5 text-base font-semibold text-black">aviaMobel</h1>
           </div>
-          <p class="text-sm text-(--color-brand-wood)/60 mb-2">
+          <p class="mb-3 max-w-sm text-sm leading-7 text-(--color-brand-wood)/72">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis corporis quod placeat
             expedita tenetur, qui magni sequi provident, earum totam eius voluptas? Enim ipsa
             explicabo deserunt molestias, suscipit aspernatur reiciendis?
           </p>
           <div>
-            <h3 class="text-sm font-semibold font-body mb-2 text-black">
+            <h3 class="mb-3 text-sm font-semibold font-body uppercase tracking-[0.18em] text-[color:var(--color-brand-earth)]">
               Seguinos En Nuestras Redes
             </h3>
-            <div class="flex flex-row gap-2">
-              <a href="/" class="text-black">
+            <div class="flex flex-row gap-3">
+              <a href="/#contacto" class="text-[color:var(--color-brand-wood)] transition duration-200 hover:-translate-y-0.5 hover:text-[color:var(--color-brand-accent)]">
                 <InstagramIcon size="md" />
               </a>
-              <a href="/" class="text-black">
+              <a href="/#contacto" class="text-[color:var(--color-brand-wood)] transition duration-200 hover:-translate-y-0.5 hover:text-[color:var(--color-brand-accent)]">
                 <FacebookIcon size="md" />
               </a>
-              <a href="/"> </a>
             </div>
           </div>
         </div>
-        <div class="grid grid-cols-3 text-center">
+        <div class="grid grid-cols-3 gap-8 text-center">
           <div>
            <nav>
-             <h2 class="text-sm text-black font-body font-semibold">PRODUCTOS</h2>
-             <ul>
-              <li class=" text-(--color-brand-wood)/60">
-                <a href="">Cocina</a>
-              </li >
-              <li class=" text-(--color-brand-wood)/60">
-                <a href="">Living</a>
-              </li>
-              <li class=" text-(--color-brand-wood)/60">
-                <a href="">Dormitorio</a>
-              </li>
-              <li class=" text-(--color-brand-wood)/60">
-                <a href="">Oficina</a>
-              </li>
+             <h2 class="mb-4 text-sm text-[color:var(--color-brand-earth)] font-body font-semibold uppercase tracking-[0.22em]">PRODUCTOS</h2>
+             <ul class="space-y-3">
+              {productLinks.map((link) => (
+                <li class=" text-(--color-brand-wood)/68">
+                  <a href={link.href} class="transition hover:text-[color:var(--color-brand-accent)]">{link.label}</a>
+                </li>
+              ))}
              </ul>
           </div>
           <div>
-            <h2 class="text-sm text-black font-body font-semibold">COMPANIA</h2>
-            <ul>
-              <li class=" text-(--color-brand-wood)/60">
-                <a href="">Nosotros</a>
-              </li >
-              <li class=" text-(--color-brand-wood)/60">
-                <a href="">Contacto</a>
-              </li>
-              <li class=" text-(--color-brand-wood)/60">
-                <a href="">Preguntas Frecuentes</a>
-              </li>
+            <h2 class="mb-4 text-sm text-[color:var(--color-brand-earth)] font-body font-semibold uppercase tracking-[0.22em]">COMPANIA</h2>
+            <ul class="space-y-3">
+              {companyLinks.map((link) => (
+                <li class=" text-(--color-brand-wood)/68">
+                  <a href={link.href} class="transition hover:text-[color:var(--color-brand-accent)]">{link.label}</a>
+                </li>
+              ))}
              </ul>
           </div>
           <div>
-            <h2 class="text-sm text-black font-body font-semibold">ATENCION AL CLIENTE</h2>
-            <ul>
-              <li class=" text-(--color-brand-wood)/60">
-                <a href="">Envios</a>
-              </li >
-              <li class=" text-(--color-brand-wood)/60">
-                <a href="">Cambios y Devoluciones</a>
-              </li>
-              <li class=" text-(--color-brand-wood)/60">
-                <a href="">Garantia</a>
-              </li>
-              <li class=" text-(--color-brand-wood)/60">
-                <a href="">Metodos Pago</a>
-              </li>
+            <h2 class="mb-4 text-sm text-[color:var(--color-brand-earth)] font-body font-semibold uppercase tracking-[0.22em]">ATENCION AL CLIENTE</h2>
+            <ul class="space-y-3">
+              {supportLinks.map((link) => (
+                <li class=" text-(--color-brand-wood)/68">
+                  <a href={link.href} class="transition hover:text-[color:var(--color-brand-accent)]">{link.label}</a>
+                </li>
+              ))}
              </ul>
           </div>
            </nav>
         </div>
       </div>
-      <div class="ml-8 mr-8 mb-4 flex flex-row justify-between text-(--color-brand-wood)/60">
-        <p>© 2026 Savia Mobel
+      <div class="ml-8 mr-8 mb-5 flex flex-row justify-between text-(--color-brand-wood)/64">
+        <p>&copy; 2026 Savia Mobel
 Todos los derechos reservados</p>
           <nav>
-            <ul class="flex flex-row gap-2 text-sm">
-              <li class=" text-(--color-brand-wood)/60">
-                <a href="">Politica de Privacidad</a>
+            <ul class="flex flex-row gap-4 text-sm">
+              <li class=" text-(--color-brand-wood)/68">
+                <a href="/politica-privacidad" class="transition hover:text-[color:var(--color-brand-accent)]">Politica de Privacidad</a>
               </li>
-              <li class=" text-(--color-brand-wood)/60">
-                <a href="">Terminos de Servicio</a>
+              <li class=" text-(--color-brand-wood)/68">
+                <a href="/politica-cookies" class="transition hover:text-[color:var(--color-brand-accent)]">Politica de Cookies</a>
               </li>
             </ul>
           </nav>
       </div>
     </div>
     </Container>
-    <div class="flex flex-col bg-(--color-brand-surface) border-t border-(--color-brand-accent)/50 w-full lg:hidden">
+    <div class="flex w-full flex-col border-t border-(--color-brand-accent)/35 bg-[color:var(--color-brand-surface)] pb-24 lg:hidden">
       <Container>
-        <Accordion client:load title="titulo">
-          <p>hola</p>
+        <Accordion client:load title="PRODUCTOS">
+          <div class="space-y-3">
+            {productLinks.map((link) => (
+              <a href={link.href} class="block text-sm text-(--color-brand-wood)/72 transition hover:translate-x-0.5 hover:text-[color:var(--color-brand-accent)]">
+                {link.label}
+              </a>
+            ))}
+          </div>
         </Accordion>
-        <Accordion client:load title="titulo">
-          <p>hola</p>
+        <Accordion client:load title="COMPANIA">
+          <div class="space-y-3">
+            {companyLinks.map((link) => (
+              <a href={link.href} class="block text-sm text-(--color-brand-wood)/72 transition hover:translate-x-0.5 hover:text-[color:var(--color-brand-accent)]">
+                {link.label}
+              </a>
+            ))}
+          </div>
         </Accordion>
-        <Accordion client:load title="titulo">
-          <p>hola</p>
+        <Accordion client:load title="ATENCION AL CLIENTE">
+          <div class="space-y-3">
+            {supportLinks.map((link) => (
+              <a href={link.href} class="block text-sm text-(--color-brand-wood)/72 transition hover:translate-x-0.5 hover:text-[color:var(--color-brand-accent)]">
+                {link.label}
+              </a>
+            ))}
+            <a href="/politica-privacidad" class="block text-sm text-(--color-brand-wood)/72 transition hover:translate-x-0.5 hover:text-[color:var(--color-brand-accent)]">
+              Politica de Privacidad
+            </a>
+            <a href="/politica-cookies" class="block text-sm text-(--color-brand-wood)/72 transition hover:translate-x-0.5 hover:text-[color:var(--color-brand-accent)]">
+              Politica de Cookies
+            </a>
+          </div>
         </Accordion>
       </Container>
     </div>
