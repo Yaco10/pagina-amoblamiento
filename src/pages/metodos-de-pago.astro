@@ -1,0 +1,45 @@
+---
+import InfoPage from '../components/content/InfoPage.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sections = [
+  {
+    title: 'Formas de pago',
+    bullets: [
+      'Transferencia bancaria.',
+      'Medios electronicos a coordinar al momento de la compra.',
+      'Opciones en cuotas cuando el producto o la promocion lo indiquen.',
+    ],
+  },
+  {
+    title: 'Confirmacion y reserva',
+    paragraphs: [
+      'La reserva de stock o el inicio de fabricacion se confirma una vez acreditado el pago segun la modalidad acordada. En productos con variantes, la confirmacion incluye color, tamaño y condiciones de entrega.',
+    ],
+  },
+  {
+    title: 'Precios y cuotas',
+    paragraphs: [
+      'Los precios publicados pueden actualizarse sin previo aviso. Si una publicacion incluye cuotas o promociones, la informacion visible en el producto sera la referencia al momento de consultar.',
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <Fragment slot="head">
+    <title>Metodos de Pago | Savia Mobel</title>
+    <meta
+      name="description"
+      content="Opciones de pago, cuotas y condiciones de confirmacion de compra en Savia Mobel."
+    />
+  </Fragment>
+
+  <InfoPage
+    eyebrow="Soporte"
+    title="Metodos de Pago"
+    intro="Estas son las modalidades habituales de pago y la forma en la que confirmamos cada compra para evitar confusiones."
+    updatedAt="Marzo 2026"
+    sections={sections}
+  />
+</BaseLayout>

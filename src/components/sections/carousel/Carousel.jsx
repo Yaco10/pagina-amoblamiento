@@ -75,8 +75,7 @@ export default function Carousel({ slides }) {
         aria-label="Slide anterior"
         onClick={scrollPrev}
         disabled={!canPrev}
-        className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white backdrop-blur transition hover:bg-black/60 disabled:opacity-40 disabled:cursor-not-allowed
-enabled:cursor-pointer"
+        className="btn-ui-icon absolute left-3 top-1/2 -translate-y-1/2"
       >
         {/* chevron left */}
         <svg viewBox="0 0 20 20" className="h-5 w-5" fill="currentColor" aria-hidden="true">
@@ -94,8 +93,7 @@ enabled:cursor-pointer"
         aria-label="Siguiente slide"
         onClick={scrollNext}
         disabled={!canNext}
-        className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white backdrop-blur transition hover:bg-black/60 disabled:opacity-40 disabled:cursor-not-allowed
-enabled:cursor-pointer"
+        className="btn-ui-icon absolute right-3 top-1/2 -translate-y-1/2"
       >
         {/* chevron right */}
         <svg viewBox="0 0 20 20" className="h-5 w-5" fill="currentColor" aria-hidden="true">
@@ -117,8 +115,10 @@ enabled:cursor-pointer"
             onClick={() => scrollTo(i)}
             aria-current={i === selectedIndex ? "true" : undefined}
             className={[
-              "h-2.5 w-2.5 rounded-full transition cursor-pointer",
-              i === selectedIndex ? "bg-neutral-900" : "bg-neutral-300 hover:bg-neutral-400",
+              "btn-ui-dot h-2.5 w-2.5",
+              i === selectedIndex
+                ? "w-7 bg-[color:var(--color-brand-wood)]"
+                : "bg-[color:var(--color-brand-coyote)]/28 hover:bg-[color:var(--color-brand-coyote)]/55",
             ].join(" ")}
           />
         ))}

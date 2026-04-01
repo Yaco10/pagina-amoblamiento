@@ -1,0 +1,48 @@
+---
+import InfoPage from '../components/content/InfoPage.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sections = [
+  {
+    title: 'Que son las cookies',
+    paragraphs: [
+      'Las cookies son pequeños archivos que el navegador guarda para recordar informacion de navegacion, preferencias o interacciones dentro del sitio.',
+    ],
+  },
+  {
+    title: 'Para que las usamos',
+    bullets: [
+      'Recordar configuraciones basicas de visualizacion.',
+      'Mejorar rendimiento, navegacion y estabilidad del sitio.',
+      'Analizar de forma general como se usan las secciones para optimizar la experiencia.',
+    ],
+    paragraphs: [
+      'No utilizamos cookies para fines invasivos. Si en el futuro incorporamos herramientas de analitica o publicidad, esta politica debera actualizarse.',
+    ],
+  },
+  {
+    title: 'Como gestionarlas',
+    paragraphs: [
+      'Podes aceptar, bloquear o eliminar cookies desde la configuracion de tu navegador. Algunas funciones del sitio pueden verse afectadas si desactivas las cookies estrictamente necesarias.',
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <Fragment slot="head">
+    <title>Politica de Cookies | Savia Mobel</title>
+    <meta
+      name="description"
+      content="Informacion sobre el uso de cookies y preferencias de navegacion en Savia Mobel."
+    />
+  </Fragment>
+
+  <InfoPage
+    eyebrow="Legal"
+    title="Politica de Cookies"
+    intro="Esta pagina resume como utilizamos cookies y tecnologias similares para ofrecer una navegacion estable, clara y funcional dentro del sitio."
+    updatedAt="Marzo 2026"
+    sections={sections}
+  />
+</BaseLayout>

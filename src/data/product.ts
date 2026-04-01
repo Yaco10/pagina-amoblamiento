@@ -62,6 +62,8 @@ export const calculateFinalPrice = (originalPrice: number, discountPercentage?: 
   return Math.round(originalPrice - (originalPrice * discountPercentage) / 100);
 };
 
+const DEFAULT_PRODUCT_IMAGES = ['/images/hero.jpg', '/images/hero2.jpg'];
+
 export const PRODUCTS: Product[] = [
   {
     id: 'p-001',
@@ -161,10 +163,7 @@ export const PRODUCTS: Product[] = [
         realSize: { ancho: 1, alto: 2, profundidad: 3 },
         stock: 5,
         price: 99900,
-        images: [
-          '/products/mesa-tv-nord/white-chico-1.jpg',
-          '/products/mesa-tv-nord/white-chico-2.jpg',
-        ],
+        images: DEFAULT_PRODUCT_IMAGES,
       },
       {
         id: 'v-002-2',
@@ -174,10 +173,7 @@ export const PRODUCTS: Product[] = [
         realSize: { ancho: 1, alto: 2, profundidad: 3 },
         stock: 3,
         price: 114900,
-        images: [
-          '/products/mesa-tv-nord/white-mediano-1.jpg',
-          '/products/mesa-tv-nord/white-mediano-2.jpg',
-        ],
+        images: DEFAULT_PRODUCT_IMAGES,
       },
       {
         id: 'v-002-3',
@@ -187,10 +183,7 @@ export const PRODUCTS: Product[] = [
         realSize: { ancho: 1, alto: 2, profundidad: 3 },
         stock: 2,
         price: 119900,
-        images: [
-          '/products/mesa-tv-nord/black-mediano-1.jpg',
-          '/products/mesa-tv-nord/black-mediano-2.jpg',
-        ],
+        images: DEFAULT_PRODUCT_IMAGES,
       },
       {
         id: 'v-002-4',
@@ -200,10 +193,7 @@ export const PRODUCTS: Product[] = [
         realSize: { ancho: 1, alto: 2, profundidad: 3 },
         stock: 0,
         price: 139900,
-        images: [
-          '/products/mesa-tv-nord/black-grande-1.jpg',
-          '/products/mesa-tv-nord/black-grande-2.jpg',
-        ],
+        images: DEFAULT_PRODUCT_IMAGES,
       },
     ],
   },
@@ -239,10 +229,7 @@ export const PRODUCTS: Product[] = [
         realSize: { ancho: 1, alto: 2, profundidad: 3 },
         stock: 8,
         price: 89900,
-        images: [
-          '/products/escritorio-slim/white-chico-1.jpg',
-          '/products/escritorio-slim/white-chico-2.jpg',
-        ],
+        images: DEFAULT_PRODUCT_IMAGES,
       },
       {
         id: 'v-003-2',
@@ -252,10 +239,7 @@ export const PRODUCTS: Product[] = [
         realSize: { ancho: 1, alto: 2, profundidad: 3 },
         stock: 3,
         price: 104900,
-        images: [
-          '/products/escritorio-slim/white-mediano-1.jpg',
-          '/products/escritorio-slim/white-mediano-2.jpg',
-        ],
+        images: DEFAULT_PRODUCT_IMAGES,
       },
       {
         id: 'v-003-3',
@@ -265,10 +249,7 @@ export const PRODUCTS: Product[] = [
         realSize: { ancho: 1, alto: 2, profundidad: 3 },
         stock: 1,
         price: 124900,
-        images: [
-          '/products/escritorio-slim/black-grande-1.jpg',
-          '/products/escritorio-slim/black-grande-2.jpg',
-        ],
+        images: DEFAULT_PRODUCT_IMAGES,
       },
     ],
   },
@@ -303,10 +284,7 @@ export const PRODUCTS: Product[] = [
         realSize: { ancho: 1, alto: 2, profundidad: 3 },
         stock: 4,
         price: 219900,
-        images: [
-          '/products/placard-compacto/white-chico-1.jpg',
-          '/products/placard-compacto/white-chico-2.jpg',
-        ],
+        images: DEFAULT_PRODUCT_IMAGES,
       },
       {
         id: 'v-004-2',
@@ -316,10 +294,7 @@ export const PRODUCTS: Product[] = [
         realSize: { ancho: 1, alto: 2, profundidad: 3 },
         stock: 2,
         price: 249900,
-        images: [
-          '/products/placard-compacto/white-mediano-1.jpg',
-          '/products/placard-compacto/white-mediano-2.jpg',
-        ],
+        images: DEFAULT_PRODUCT_IMAGES,
       },
       {
         id: 'v-004-3',
@@ -329,10 +304,7 @@ export const PRODUCTS: Product[] = [
         realSize: { ancho: 1, alto: 2, profundidad: 3 },
         stock: 1,
         price: 289900,
-        images: [
-          '/products/placard-compacto/black-grande-1.jpg',
-          '/products/placard-compacto/black-grande-2.jpg',
-        ],
+        images: DEFAULT_PRODUCT_IMAGES,
       },
     ],
   },

@@ -1,0 +1,56 @@
+---
+import InfoPage from '../components/content/InfoPage.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sections = [
+  {
+    title: 'Datos que podemos recibir',
+    paragraphs: [
+      'Cuando nos escribis mediante el formulario de contacto o por otros canales, podemos recibir datos como tu nombre, email, telefono, consulta, localidad y la informacion necesaria para asesorarte sobre productos, pagos o entregas.',
+      'Solo solicitamos datos utiles para responder de forma clara, preparar un presupuesto o coordinar una compra.',
+    ],
+  },
+  {
+    title: 'Como usamos esa informacion',
+    paragraphs: [
+      'Utilizamos los datos para responder consultas, enviar informacion comercial vinculada al pedido, coordinar entregas y mejorar la atencion.',
+    ],
+    bullets: [
+      'Responder mensajes y solicitudes de presupuesto.',
+      'Confirmar stock, opciones de pago y condiciones de entrega.',
+      'Dar seguimiento postventa cuando sea necesario.',
+    ],
+  },
+  {
+    title: 'Resguardo y conservacion',
+    paragraphs: [
+      'Mantenemos la informacion con criterios de acceso limitado y la conservamos durante el tiempo necesario para atender la relacion comercial o cumplir obligaciones administrativas.',
+      'No compartimos datos personales con terceros ajenos al proceso de venta, salvo cuando resulte necesario para pagos, envios o requerimientos legales.',
+    ],
+  },
+  {
+    title: 'Tus derechos',
+    paragraphs: [
+      'Podes solicitar la revision, actualizacion o eliminacion de tus datos escribiendonos desde la seccion de contacto. Vamos a responderte dentro de un plazo razonable.',
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <Fragment slot="head">
+    <title>Politica de Privacidad | Savia Mobel</title>
+    <meta
+      name="description"
+      content="Conoce como Savia Mobel utiliza y protege la informacion enviada a traves de sus canales de contacto."
+    />
+  </Fragment>
+
+  <InfoPage
+    eyebrow="Legal"
+    title="Politica de Privacidad"
+    intro="Esta politica explica de forma simple como tratamos la informacion que compartis con Savia Mobel al pedir asesoramiento, realizar una consulta o avanzar con una compra."
+    updatedAt="Marzo 2026"
+    sections={sections}
+  />
+</BaseLayout>

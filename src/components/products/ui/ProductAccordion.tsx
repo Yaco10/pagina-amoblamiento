@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import type { Product, ProductVariant } from '../../data/product';
+import type { Product, ProductVariant } from '../../../data/product';
 
 export default function ProductAccordion({
   product,
@@ -46,7 +46,7 @@ export default function ProductAccordion({
 
       <div className="my-4">
         <button
-          className="w-full bg-(--color-brand-surface) px-4 py-2 rounded-sm flex justify-between cursor-pointer"
+          className="btn-ui-panel"
           onClick={() => switchAcordeon('description')}
         >
           <p className="font-semibold">Descripción</p>
@@ -85,7 +85,7 @@ export default function ProductAccordion({
 
       <div className="my-4">
         <button
-          className="w-full bg-(--color-brand-surface) px-4 py-2 rounded-sm flex justify-between cursor-pointer"
+          className="btn-ui-panel"
           onClick={() => switchAcordeon('envio')}
         >
           <p className="font-semibold">Envíos</p>
@@ -125,7 +125,7 @@ export default function ProductAccordion({
 
       <div className="my-4">
         <button
-          className="w-full bg-(--color-brand-surface) px-4 py-2 rounded-sm flex justify-between cursor-pointer"
+          className="btn-ui-panel"
           onClick={() => switchAcordeon('garantia')}
         >
           <p className="font-semibold">Garantía</p>

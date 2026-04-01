@@ -1,0 +1,53 @@
+---
+import InfoPage from '../components/content/InfoPage.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sections = [
+  {
+    title: 'Cuando aplica un cambio o devolucion',
+    paragraphs: [
+      'Si el producto llega con un problema de fabricacion, daño de traslado o una diferencia relevante respecto de lo informado, podes escribirnos para evaluar el caso.',
+    ],
+  },
+  {
+    title: 'Condiciones generales',
+    bullets: [
+      'El reclamo debe realizarse dentro de un plazo razonable desde la entrega.',
+      'El producto debe conservarse en condiciones acordes al analisis del caso.',
+      'Es importante adjuntar fotos, descripcion del inconveniente y numero de pedido o contacto utilizado.',
+    ],
+  },
+  {
+    title: 'Casos que revisamos con prioridad',
+    bullets: [
+      'Piezas dañadas o faltantes.',
+      'Errores de terminacion o fabricacion.',
+      'Diferencias significativas con la variante confirmada.',
+    ],
+  },
+  {
+    title: 'Exclusiones habituales',
+    paragraphs: [
+      'No suelen corresponder cambios o devoluciones por desgaste de uso, armado incorrecto por terceros, exposicion a humedad o golpes posteriores a la entrega.',
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <Fragment slot="head">
+    <title>Cambios y Devoluciones | Savia Mobel</title>
+    <meta
+      name="description"
+      content="Condiciones generales para cambios, devoluciones y reclamos en Savia Mobel."
+    />
+  </Fragment>
+
+  <InfoPage
+    eyebrow="Soporte"
+    title="Cambios y Devoluciones"
+    intro="Queremos que recibas tu mueble en condiciones. Si surge un problema, esta guia resume como trabajamos los cambios y revisiones."
+    updatedAt="Marzo 2026"
+    sections={sections}
+  />
+</BaseLayout>

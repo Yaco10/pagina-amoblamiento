@@ -1,7 +1,20 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Container from "../../components/ui/Container.astro";
+import ProductsPage from "../../components/products/ProductsPage";
 ---
 
 <BaseLayout>
-    
+  <main class="pb-12 sm:pb-16">
+    <header class="w-full bg-[color:var(--color-brand-surface)]/72 p-4 px-8">
+      <p class="text-sm text-[color:var(--color-brand-coyote)]/90">
+        Productos /
+        <span class="ml-1 font-semibold text-[color:var(--color-brand-wood)]">Todas</span>
+      </p>
+      <h1 class="mt-0 text-3xl font-semibold tracking-tight text-[color:var(--color-brand-earth)]">Todos los productos</h1>
+    </header>
+    <Container>
+      <ProductsPage client:load />
+    </Container>
+  </main>
 </BaseLayout>

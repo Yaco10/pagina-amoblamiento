@@ -8,15 +8,15 @@ const categoryLabel = (category ?? 'all').toLowerCase();
 ---
 
 <BaseLayout>
-  <main >
-    <header class="p-4 px-8 bg-[color:var(--color-brand-surface)] w-full">
-      <p class="text-sm text-black/60">
+  <main class="pb-12 sm:pb-16">
+    <header class="w-full bg-[color:var(--color-brand-surface)]/72 p-4 px-8">
+      <p class="text-sm text-[color:var(--color-brand-coyote)]/90">
         Productos /
-        <span class="ml-1 font-semibold text-black">
+        <span class="ml-1 font-semibold text-[color:var(--color-brand-wood)]">
           {categoryLabel === 'all' ? 'Todas' : category}
         </span>
       </p>
-      <h1 class="mt-0 text-3xl font-semibold tracking-tight">
+      <h1 class="mt-0 text-3xl font-semibold tracking-tight text-[color:var(--color-brand-earth)]">
         {categoryLabel === 'all' ? 'Todos los productos' : `Muebles de ${category}`}
       </h1>
     </header>

@@ -9,16 +9,47 @@ type Props = {
 const { src } = Astro.props as Props;
 ---
 
-<div class="max-w-lg flex flex-row bg-[color:var(--color-brand-surface)]/30">
-  <div class="flex flex-col justify-center items-center w-1/2 m-10">
-    <UnderlinedText text="Titulo Producto" size="lg" />
+<div
+  class="group relative flex max-w-lg flex-row overflow-hidden rounded-xl border border-[color:var(--color-brand-wood)]/10 bg-[linear-gradient(145deg,color-mix(in_srgb,var(--color-brand-base)_96%,white),color-mix(in_srgb,var(--color-brand-surface)_42%,white))] transition-transform duration-500 ease-out hover:-translate-y-0.5 hover:shadow-[0_14px_34px_rgba(64,53,40,0.12)]"
+>
+  <div
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.28),transparent_48%)] opacity-80"
+  >
+  </div>
+
+  <div
+    class="relative flex w-1/2 flex-col items-center justify-center px-8 py-10 text-center transition-transform duration-500 ease-out group-hover:-translate-y-0.5"
+  >
+    <p
+      class="mb-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-[color:var(--color-brand-accent)]/80"
+    >
+      Destacado
+    </p>
+
+    <div class="transition-transform duration-500 ease-out group-hover:translate-y-[-2px]">
+      <UnderlinedText text="Titulo Producto" size="lg" />
+    </div>
 
     <a
-      href="#productos"
-      class="hidden sm:inline-flex rounded-sm border border-brand-wood/15 bg-brand-surface/60 mt-5 px-5 py-2 text-sm font-medium text-brand-wood shadow-sm transition hover:bg-brand-surface"
+      href="/#productos"
+      class="btn-ui btn-ui-outline mt-6 hidden sm:inline-flex items-center gap-2 px-5 py-3 text-xs uppercase tracking-[0.22em]"
     >
-      Ver producto
+      <span>Ver producto</span>
+      <span class="text-sm transition-transform duration-300 ease-out group-hover:translate-x-0.5">
+        &rarr;
+      </span>
     </a>
   </div>
-  <Image src={src} alt="Producto" class="w-1/2 object-cover" />
+
+  <div class="relative w-1/2 overflow-hidden border-l border-[color:var(--color-brand-wood)]/8">
+    <div
+      class="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(64,53,40,0.12))] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100"
+    >
+    </div>
+    <Image
+      src={src}
+      alt="Producto"
+      class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+    />
+  </div>
 </div>

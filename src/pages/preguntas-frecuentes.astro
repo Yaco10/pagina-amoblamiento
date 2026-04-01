@@ -1,0 +1,64 @@
+---
+import InfoPage from '../components/content/InfoPage.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sections = [
+  {
+    id: 'compras',
+    title: 'Como realizo una compra o consulta',
+    bullets: [
+      'Elegis el producto o la categoria que te interesa.',
+      'Nos escribis desde la seccion de contacto o por WhatsApp.',
+      'Te confirmamos stock, variante, precio y tiempos.',
+    ],
+  },
+  {
+    id: 'envios',
+    title: 'Envios y entregas',
+    paragraphs: [
+      'El envio se coordina segun producto y destino. Siempre buscamos informarte plazos estimados y modalidad antes de cerrar la compra.',
+    ],
+  },
+  {
+    id: 'garantias',
+    title: 'Garantias y reclamos',
+    bullets: [
+      'Atendemos inconvenientes de fabricacion o transporte con evidencia del caso.',
+      'Es importante avisar lo antes posible luego de recibir el producto.',
+      'Dependiendo del problema podemos ofrecer reposicion de piezas, asistencia o revision del pedido.',
+    ],
+  },
+  {
+    id: 'pagos',
+    title: 'Pagos y promociones',
+    paragraphs: [
+      'Las promociones y cuotas pueden variar segun el producto. Si ves una opcion publicada, consultanos para confirmar vigencia, alcance y condiciones antes de cerrar la compra.',
+    ],
+  },
+  {
+    id: 'medidas',
+    title: 'Medidas, colores y variantes',
+    paragraphs: [
+      'Cada ficha puede incluir diferentes colores, tamaños y niveles de stock. Si necesitas ayuda para elegir la mejor opcion para tu ambiente, podemos orientarte antes de confirmar.',
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <Fragment slot="head">
+    <title>Preguntas Frecuentes | Savia Mobel</title>
+    <meta
+      name="description"
+      content="Respuestas a preguntas frecuentes sobre compras, envios, garantias, pagos y variantes de productos en Savia Mobel."
+    />
+  </Fragment>
+
+  <InfoPage
+    eyebrow="Ayuda"
+    title="Preguntas Frecuentes"
+    intro="Reunimos las consultas mas comunes para que encuentres rapido informacion sobre compras, entregas, pagos, garantias y variantes disponibles."
+    updatedAt="Marzo 2026"
+    sections={sections}
+  />
+</BaseLayout>

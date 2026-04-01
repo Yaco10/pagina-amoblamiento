@@ -1,0 +1,47 @@
+---
+import InfoPage from '../components/content/InfoPage.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sections = [
+  {
+    title: 'Cobertura y coordinacion',
+    paragraphs: [
+      'Los envios se coordinan de forma personalizada segun el tipo de producto, la disponibilidad y el destino. Antes de confirmar una compra te informamos alcance, plazos y modalidad de entrega.',
+    ],
+  },
+  {
+    title: 'Tiempos estimados',
+    bullets: [
+      'Productos en stock: coordinacion mas agil y entrega segun zona.',
+      'Pedidos especiales o con variantes: tiempo sujeto a preparacion y terminacion.',
+      'Despachos al interior: tiempos sujetos al operador logistico.',
+    ],
+  },
+  {
+    title: 'Recomendaciones al recibir',
+    bullets: [
+      'Revisar embalaje y estado general al momento de la entrega.',
+      'Avisarnos dentro de las primeras 48 horas si detectas algun inconveniente.',
+      'Guardar comprobantes y fotos si hubiera daño de transporte.',
+    ],
+  },
+];
+---
+
+<BaseLayout>
+  <Fragment slot="head">
+    <title>Envios | Savia Mobel</title>
+    <meta
+      name="description"
+      content="Informacion sobre cobertura, coordinacion y tiempos de envio de Savia Mobel."
+    />
+  </Fragment>
+
+  <InfoPage
+    eyebrow="Soporte"
+    title="Envios"
+    intro="Cada entrega se organiza segun el producto y el destino para que recibas tu amoblamiento con informacion clara desde el inicio."
+    updatedAt="Marzo 2026"
+    sections={sections}
+  />
+</BaseLayout>

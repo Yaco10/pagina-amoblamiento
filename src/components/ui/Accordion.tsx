@@ -23,22 +23,26 @@ export default function({title,children}:Props){
     return(
         <div>
             <button
-          className={`w-full py-4 flex justify-between cursor-pointer`}
+          className="btn-ui-accordion"
           onClick={() => setOpen(!open)}
         >
-          <p className="font-semibold">{title}</p>
-          <span className="font-semibold">{open === true ? openSigne : notOpenSigne}</span>
+          <span className="text-[0.95rem] font-body font-semibold uppercase tracking-[0.12em] text-brand-wood">
+            {title}
+          </span>
+          <span className="min-w-5 text-right text-lg font-medium leading-none text-brand-wood/80 transition-colors duration-200">
+            {open === true ? openSigne : notOpenSigne}
+          </span>
         </button>
         <div
           ref={ref}
           className="overflow-hidden transition-all ease-in duration-400"
           style={{ maxHeight: open === true ? height : 0 }}
         >
-          <div className={`pt-4`}>
+          <div className="pb-4 pt-1">
             {children}
           </div>
         </div>
-        <div className="border-b border-(--color-brand-accent)/50 "></div>
+        <div className="border-b border-brand-wood/14"></div>
         </div>
     )
 }

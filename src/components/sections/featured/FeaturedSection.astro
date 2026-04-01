@@ -5,10 +5,13 @@ import FeaturedProductCard from './FeaturedProductCard.astro';
 import image1 from '../../../../public/images/hero.jpg';
 ---
 
-<section class="py-16 sm:py-24 bg-dark-800 w-full">
+<section
+  id="productos"
+  class="w-full bg-[linear-gradient(180deg,color-mix(in_srgb,var(--color-brand-base)_92%,white),color-mix(in_srgb,var(--color-brand-surface)_30%,white))] py-16 sm:py-24"
+>
   <Container>
     <div class="flex flex-col items-center justify-center">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-20 overflow-hidden">
+      <div class="grid grid-cols-1 gap-10 overflow-hidden md:grid-cols-3 md:gap-12">
         <FeaturedProductCard src={image1} />
         <FeaturedProductCard src={image1} />
         <FeaturedProductCard src={image1} />

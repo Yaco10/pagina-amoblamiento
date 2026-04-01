@@ -9,7 +9,6 @@ type ProductCarouselProps = {
 
 export default function ProductCarousel19x9({ images, product }: ProductCarouselProps) {
   const filteredImages = useMemo(() => {
-    console.log('adsada', images.length);
     if (images.length > 0) return images;
     if (product?.variants) {
       for (let v of product?.variants) {
@@ -81,7 +80,7 @@ export default function ProductCarousel19x9({ images, product }: ProductCarousel
             <button
               type="button"
               onClick={scrollPrev}
-              className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 px-3 py-2 shadow hover:bg-white cursor-pointer"
+              className="btn-ui-icon absolute left-3 top-1/2 -translate-y-1/2"
               aria-label="Anterior"
             >
               ‹
@@ -89,7 +88,7 @@ export default function ProductCarousel19x9({ images, product }: ProductCarousel
             <button
               type="button"
               onClick={scrollNext}
-              className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/80 px-3 py-2 shadow hover:bg-white cursor-pointer"
+              className="btn-ui-icon absolute right-3 top-1/2 -translate-y-1/2"
               aria-label="Siguiente"
             >
               ›
@@ -108,8 +107,10 @@ export default function ProductCarousel19x9({ images, product }: ProductCarousel
                 key={src + i}
                 onClick={() => scrollTo(i)}
                 className={[
-                  'shrink-0 overflow-hidden rounded-xl border transition',
-                  active ? 'border-black' : 'border-gray-200 hover:border-gray-400',
+                  'shrink-0 overflow-hidden rounded-xl border transition-all duration-200 cursor-pointer',
+                  active
+                    ? 'border-[color:var(--color-brand-wood)] shadow-[0_12px_28px_rgba(0,0,0,0.12)]'
+                    : 'border-[color:var(--color-brand-wood)]/10 hover:border-[color:var(--color-brand-accent)]/55 hover:-translate-y-0.5',
                 ].join(' ')}
               >
                 <div className="relative aspect-[12/16] w-28 overflow-hidden bg-[color:var(--color-brand-surface)] cursor-pointer">
